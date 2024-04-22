@@ -1,0 +1,122 @@
+<div class="container-fluid mt-4">
+    <h1 class="text-center mb-3 employecolor " style="font-size: 32px ; font-family: Arial, Helvetica, sans-serif;">Account Details</h1>
+    <form class="formborderbox round round-3 p-4 mt-3" (submit)="sendAccount(accountForm)" #accountForm >
+
+
+        <div class="row mb-3">
+            <div class="col-md-4 mb-3">
+                <label for="accountName" class="form-label"> Name:</label>
+                <!-- <input type="text" class="form-control" id="accountName" placeholder="Enter your first name"> -->
+                <input type="text" class="form-control" id="accountName" placeholder="Enter your accountName" ngModel="acc.accountName" name="accountName">
+
+            </div>
+            <div class="col-md-4 mb-3">
+                <label for="ownerId" class="form-label">Owner Id:</label>
+                <!-- <input type="text" class="form-control" id="ownerId" placeholder="Enter your last name"> -->
+                <input type="number" class="form-control" id="ownerId" placeholder="Enter your OwnerId" ngModel="acc.ownerId" name="ownerId">
+
+            </div>
+            <div class="col-md-4 mb-3">
+                <label for="relationshipManagerId" class="form-label">Relationship Manager Id:</label>
+                <!-- <input type="text" class="form-control" id="relationshipManagerId" placeholder="Enter your last name"> -->
+                <input type="number" class="form-control" id="relationshipManagerId" placeholder="Enter Relationship ManagerId" ngModel="acc.relationshipManagerId" name="relationshipManagerId">
+            </div>
+
+        </div>
+
+
+        <div class="row mb-3">
+            <div class="col-md-4 mb-3">
+                <label for="businessDevelopmentManagerId" class="form-label">Business Development Manager Id::</label>
+                <input type="number" class="form-control" id="businessDevelopmentManagerId" placeholder="Enter Business Development ManagerId" ngModel="acc.businessDevelopmentManagerId" name="businessDevelopmentManagerId">
+
+            </div>
+            <div class="col-md-4 mb-3">
+                <label for="parentAccountId" class="form-label"> Parent Account Id:</label>
+                <input type="number" class="form-control" id="parentAccountId" placeholder="Enter Parent Account Id" ngModel="acc.parentAccountId" name="parentAccountId">
+                <!-- ngModel="emp.email" -->
+            </div>
+            <div class="col-md-4 mb-3">
+                <label for="accountBuId" class="form-label">BU ID:</label>
+                <input type="number" class="form-control" id="accountBuId" placeholder="Enter Account BuId" ngModel="acc.accountBuId" name="accountBuId">
+                <!-- ngModel="emp.email" -->
+            </div>
+        </div>
+
+        <div class="row mb-3">
+
+            <div class="col-md-4 mb-3">
+                <label for="plannedStartDate" class="form-label">Planned Start Date:</label>
+                <input type="date" class="form-control" id="plannedStartDate" ngModel="acc.plannedStartDate" name="plannedStartDate">
+            </div>
+
+
+            <div class="col-md-4 mb-3">
+                <label for="plannedEndDate" class="form-label">Planned Start Date:</label>
+                <input type="date" class="form-control" id="plannedEndDate" ngModel="acc.plannedEndDate" name="plannedEndDate">
+            </div>
+
+
+            <div class="col-md-4 mb-3">
+                <label for="actualStartDate" class="form-label">actual Start Date:</label>
+                <input type="date" class="form-control" ngModel="acc.actualStartDate" id="actualStartDate" name="actualStartDate">
+            </div>
+
+        </div>
+
+        <div class="row mb-3">
+
+            <div class="col-md-4 mb-3">
+                <label for="actualEndDate" class="form-label">actual End Date::</label>
+                <input type="date" class="form-control" id="actualEndDate" ngModel="acc.actualEndDate" name="actualEndDate">
+            </div>
+            <div class="col-md-4 mb-3">
+                <label for="address" class="form-label">Address:</label>
+                <input type="text" class="form-control" id="address" ngModel="acc.address" name="address">
+            </div>
+            <div class="col-md-4 mb-3">
+                <label for="city" class="form-label"> City:</label>
+                <input type="text" class="form-control" id="city" ngModel="acc.city" name="city">
+            </div>
+        </div>
+
+        <div class="row mb-3">
+
+
+            <div class="col-md-4 mb-3">
+                <label for="state" class="form-label">State:</label>
+                <input type="text" class="form-control" id="state" ngModel="acc.state" name="state">
+            </div>
+            <div class="col-md-4 mb-3">
+                <label for="zipcode" class="form-label"> Zipcode:</label>
+                <input type="text" class="form-control" id="zipcode" ngModel="acc.zipcode" name="zipcode">
+            </div>
+            <div class="col-md-4 mb-3">
+                <label for="country" class="form-label">Country:</label>
+                <input type="text" class="form-control" id="country" ngModel="acc.country" name="country">
+            </div>
+
+        </div>
+
+        <div class="row mb-3">
+            <div class="col-md-4 mb-3">
+                <label for="accountStatus" class="form-label">Status:</label>
+                <input type="text" class="form-control" id="accountStatus" ngModel="acc.accountStatus" name="accountStatus">
+            </div>
+            <div class="col-md-4 mb-3">
+                <label for="comments" class="form-label">Comment:</label>
+                <input type="text" class="form-control" id="comments" ngModel="acc.comments" name="comments">
+            </div>
+            <div class="col-md-4 mb-3">
+                <label for="uuId" class="form-label">UU ID:</label>
+                <input type="text" class="form-control" id="uuId" ngModel="acc.uuId" name="uuId">
+            </div>
+
+
+        </div>
+
+        <div class="d-grid">
+            <button type="submit" class="btn btnbg">Submit</button>
+        </div>
+    </form>
+  </div>

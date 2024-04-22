@@ -1,0 +1,66 @@
+<div class="container-fluid">
+
+  <div class="row " style="height: 90px;">
+
+    <div class="input-group mt-5 justify-content-end">
+      <div class="input-group-append" style="display: flex">
+        <button class="btn btn-primary float-lg-end" routerLink="/admin/add-projects">
+          <i class="fa-solid fa-plus"></i>
+
+        </button>
+
+      </div>
+    </div>
+
+    <div>
+
+
+    </div>
+
+
+    <table class="table mt-5">
+      <thead>
+        <tr class="table-dark">
+          
+         
+          <th class="text-center">Account Project Name</th>
+          <th class="text-center">Account Name</th>
+          <th class="text-center">Project Manager</th>
+          <th class="text-center">Priority</th>
+          <th class="text-center">Billing Hours</th>
+          <th class="text-center">Planned Start Date</th>
+          <th class="text-center">Planned End Date</th>
+          <th class="text-center">Actual Start Date</th>
+          <th class="text-center">Actual End Date</th>
+          <th class="text-center">Action</th>
+
+        </tr>
+      </thead>
+      <tbody class="tbody">
+       <tr *ngFor="let c of accountProject">
+          <td>{{ c.projectName }}</td>
+          <td>{{ c.accountName }}</td>
+          <td>{{ c.firstName }}</td>
+          <td>{{ c.referenceDetailValue }}</td>
+          <td>{{ c.noOfBillingHours }}</td>
+          <td>{{ c.plannedStartDate | date : "dd-MM-yyyy" }}</td>
+          <td>{{ c.plannedEndDate | date : "dd-MM-yyyy" }}</td>
+          <td>{{ c.actualStartDate | date : "dd-MM-yyyy" }}</td>
+          <td>{{ c.actualEndDate | date : "dd-MM-yyyy" }}</td>
+
+          <td class="rowbutton">
+            <button type="button" class="btn btn-warning ml-2 bg bg-light" (click)="editItem(c)">
+              <i class="fas fa-edit"></i>
+            </button>
+
+            <button type="button" class="btn btn-warning ml-2 bg bg-light">
+              <i class="fa-solid fa-trash-can fa-fw" style="color: red;" (click)="removeTask(c.accountProjectId)"></i>
+            </button>
+          </td>
+
+        </tr>
+
+
+      </tbody>
+    </table>
+  </div>

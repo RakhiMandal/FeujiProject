@@ -1,0 +1,48 @@
+/* Apply general styling to the container */
+.container {
+  margin-top: 5rem;
+}
+
+/* Style the card */
+.card {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Style the card body */
+.card-body {
+  padding: 20px;
+}
+
+/* Style the card title */
+.card-title {
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+/* Style the row */
+.row {
+  margin-bottom: 1.5rem;
+}
+
+/* Style the columns */
+.col-md-6 {
+  flex: 0 0 50%;
+  max-width: 50%;
+  padding: 0 15px;
+}
+
+/* Style the employee image */
+.img-fluid {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+/* Style the additional details paragraphs */
+p {
+  margin-bottom: 0.5rem;
+}
+
+/* Add more specific styles based on your requirements */

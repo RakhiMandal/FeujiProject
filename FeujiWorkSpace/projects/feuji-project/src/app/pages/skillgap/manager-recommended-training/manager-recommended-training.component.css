@@ -1,0 +1,70 @@
+.container {
+  margin-top: 2%;
+}
+
+.skillName {
+  background-color: rgb(250, 248, 248);
+}
+
+.panelTitle {
+  color: black !important;
+}
+
+#popupForm {
+  height: 600px;
+}
+
+.subCategory {
+  background-color: #ecf0f4;
+}
+
+.panelTitle {
+  position: relative;
+}
+
+.items {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+mat-table {
+  background-color: rgb(250, 248, 248);
+  color: black;
+}
+
+mat-header-cell,
+mat-cell {
+  color: black;
+  border-bottom: 1px solid rgb(216, 211, 211);
+}
+
+.mat-expansion-indicator::after {
+  color: black !important;
+}
+
+.xlsxdownload {
+  display: flex;
+  justify-content: end;
+  margin-bottom: 2%;
+}
+
+.xlsxdownload img {
+  height: 38px;
+  width: 38px;
+  cursor: pointer;
+  vertical-align: middle;
+  overflow-clip-margin: content-box;
+  overflow: clip;
+}
+
+#skillimg {
+  height: 20px;
+}
+
+.xlsxdownload button{
+  border: none;
+}
+.mat-expansion-panel-header div .mat-panel-title  {
+  color: green !important; 
+}

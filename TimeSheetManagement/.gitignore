@@ -1,0 +1,39 @@
+# Compiled class file
+*.class
+
+# Log files
+*.log
+
+# Compiled binary
+target/
+bin/
+
+# Compiled source
+bin/
+gen/
+
+# Package files
+*.jar
+*.war
+*.ear
+*.zip
+*.tar.gz
+
+# Maven files
+target/
+pom.xml.*
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.next
+release.properties
+dependency-reduced-pom.xml
+
+
+# Log files
+log/
+logs/
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+/.metadata/

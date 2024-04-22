@@ -1,0 +1,22 @@
+body {
+    width: 100%;
+  }
+  
+  .navbar {
+    height: 100px;
+    background-color: #ecf0f4;
+    display: flex;
+    justify-content:space-evenly;
+    padding-top: 0;
+  }
+  
+  .navbar .navbar-brand img {
+    height: 62px;
+    width: 116px;
+    left: 70px;
+  }
+  .container{
+    display: flex;
+    width:100%;
+    justify-content:space-evenly;
+  }

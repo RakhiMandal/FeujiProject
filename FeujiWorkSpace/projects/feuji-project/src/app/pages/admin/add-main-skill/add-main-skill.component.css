@@ -1,0 +1,187 @@
+.container {
+  margin-top: 10%;
+  margin-left: 5%;
+  width: 90%
+}
+
+#btn1 {
+  position: fixed;
+  background-color: rgb(164, 164, 236);
+  left: 91%;
+  top:15%;
+}
+
+.btn {
+  border-radius: 50%;
+  background-color: rgb(164, 164, 236);
+}
+
+.skillName {
+  background-color: rgb(250, 248, 248);
+}
+
+.panelTitle {
+  color: black !important;
+
+}
+
+.heads {
+
+  color: black !important;
+  font-weight: bolder;
+}
+
+#header {
+  display: flex;
+  gap: 41rem;
+  flex-direction: row;
+}
+
+.status-heading {
+  display: block;
+}
+
+#status {
+  display: flex;
+  justify-content: space-between;
+
+}
+
+#popupForm {
+  height: 600px;
+}
+
+.subCategory {
+
+  background-color: #ecf0f4;
+}
+
+.panelTitle {
+  position: relative;
+}
+
+.items {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+
+
+.popup {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+}
+
+.popup-content {
+
+  margin: 15% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+}
+
+.close {
+  color: #fafafa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+#update.fas {
+  padding-left: 1.5rem;
+}
+
+.container[_ngcontent-ng-c918982759] {
+  height: 100vh;
+  width: 75%;
+  position: relative;
+  top: 28%;
+  left: 10%;
+}
+
+.custom-checkbox {
+  display: flex;
+  align-items: center;
+}
+
+.custom-checkbox mat-checkbox {
+  margin-right: 10px;
+}
+
+.custom-checkbox .status {
+  font-size: 16px;
+  color: #333;
+  padding-right: 1rem;
+}
+
+#save {
+  margin-left: 50%;
+  margin-top: 10px;
+  border: 1px solid black;
+  border-radius: 5px;
+  width: 60px;
+  height: 30px;
+  padding: 5px 15px;
+  text-align: center;
+}
+
+input {
+  margin-right: 4rem;
+}
+
+#save:hover {
+  background-color: rgba(190, 186, 186, 0.851);
+}
+
+#cancel:hover {
+  background-color: rgba(190, 186, 186, 0.851);
+}
+
+#cancel {
+  margin-left: 50%;
+  margin-top: 10px;
+  border: 1px solid black;
+  border-radius: 5px;
+  width: 60px;
+  height: 30px;
+  padding: 5px;
+  text-align: center;
+}
+
+.SavingAndCancelling {
+  display: flex;
+  width: 100px;
+  height: 30px;
+  position: relative;
+  left: 30%;
+  top: 10%;
+}
+
+#trashbtn {
+  color: red;
+}
+
+.remove-button {
+  background-color: transparent;
+  border: none;
+  padding: 0;
+}
+
+#panel {
+  display: flex;
+  justify-content: space-between;
+}

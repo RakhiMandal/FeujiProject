@@ -1,0 +1,168 @@
+.container {
+  display: flex;
+  gap: 7%;
+  padding: 0px;
+  margin-top: 3%;
+}
+
+.container div {
+  margin-right: 10px;
+  width: 11px;
+}
+
+select {
+  height: 40px;
+  width: 200px;
+  box-sizing: border-box;
+  padding: 7px;
+  border-radius: 5px;
+  appearance: none;
+
+}
+
+select option {
+  font-size: 12px;
+}
+
+#downloadbtn {
+  width: 10px;
+}
+
+#display {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 2%;
+}
+
+#details {
+  margin-top: 3%;
+}
+
+#ptag {
+  font-size: 17px
+}
+
+.selected-border {
+  border: 1px solid blue;
+}
+
+.display {
+  margin-top: 3%;
+}
+
+img {
+  height: 20px;
+}
+
+.table td {
+  white-space: nowrap;
+  overflow: visible;
+  text-overflow: ellipsis;
+}
+
+input {
+  overflow: visible;
+}
+
+.table thead th {
+  background-color: #f0f0f0;
+  border: none;
+  padding: 8px;
+  border-collapse: collapse !important;
+}
+
+.table thead th:nth-child(odd) {
+  background-color: #e0e0e0;
+}
+
+.table thead th:nth-child(even) {
+  background-color: #d0d0d0;
+}
+
+.table thead th:hover {
+  background-color: #ccc;
+}
+
+img {
+  height: 20px;
+}
+
+section {
+  gap: 2px;
+  align-items: center;
+}
+
+.colours {
+  display: flex;
+  gap: 1rem;
+}
+
+.identify {
+  height: 17px;
+  width: 5rem;
+  border-radius: 50px;
+  box-shadow: 2px 2px 6px grey;
+}
+
+.table thead th:nth-child(odd) {
+  background-color: #e0e0e0;
+}
+
+.table thead th:nth-child(even) {
+  background-color: #d0d0d0;
+}
+
+.table thead th:hover {
+  border: 2px solid grey;
+}
+
+input {
+  height: 2rem;
+  width: 25rem;
+  border-radius: 50px;
+  text-align: center;
+}
+
+#down {
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  font-size: medium;
+  background-color: rgb(164, 164, 236);
+  border-color: rgb(164, 164, 236);
+  position: relative;
+  left: 60rem;
+}
+
+aside {
+  position: relative;
+  left: 50rem;
+  top: 1rem;
+}
+
+.table td {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+#clr {
+  width: inherit;
+  height: 2rem;
+  border-radius: 25px;
+  box-shadow: 2px 2px 6px grey;
+  border: 2px solid rgb(238, 234, 234);
+}
+
+table thead {
+  position: sticky;
+  top: 10%;
+}
+
+.row1>th {
+  background-color: rgb(229, 233, 234);
+}
+.wraptext{
+  white-space:pre-line;
+}

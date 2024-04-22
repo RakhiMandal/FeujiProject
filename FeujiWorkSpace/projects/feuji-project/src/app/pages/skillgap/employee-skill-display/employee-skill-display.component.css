@@ -1,0 +1,107 @@
+.table td {
+  white-space: nowrap;
+  overflow: visible;
+  text-overflow: ellipsis;
+  padding: 0rem 0rem;
+}
+input{
+  overflow: visible;
+}
+.table thead th {
+  background-color: #f0f0f0; 
+  border: 1px solid #ccc; 
+  padding: 5px 0;
+  font-size: 11px;
+}
+.table thead tr th{
+  font-family:Arial, Helvetica, sans-serif; 
+  font-size:small;
+}
+.table thead th:nth-child(odd) {
+  background-color: #e0e0e0; 
+}
+.table thead th:nth-child(even) {
+  background-color: #d0d0d0; 
+}
+.table thead th:hover {
+  background-color: #ccc; 
+}
+.table-container {
+  overflow-y: auto;
+}
+.sticky-header {
+  position: sticky;
+  top: 4rem;
+  background-color: white;
+  z-index: 1;
+}
+*{
+text-align: center;
+}
+.attencence{
+  margin-top: 3px;
+}
+#btnsubmit{
+  position: absolute;
+  left: 96%;
+  background-color: rgb(164, 164, 236) ;
+}
+#btn{
+  position: absolute;
+  left: 85%;
+}
+#addbutton{
+  position: fixed;
+  background-color:  rgb(164, 164, 236) ; 
+  position: absolute;
+  left: 96%;
+  border-radius: 50%;
+}
+.row1 > th{
+   background-color: rgb(229, 233, 234);
+}
+.green-icon {
+  color: green;
+}
+select{
+  width: 5rem;
+}
+
+::ng-deep select option::before {
+  display: none !important;
+}
+.no-truncate {
+  text-overflow: clip !important;
+}
+.table thead tr{
+  text-align: left;
+}
+.form-control{
+  font-size: 12px;
+}
+#description{
+  display: block;
+}
+.ngcontainer{
+  font-size: 12px;
+}
+.descriptionDisplay{
+  width: 150px;
+   overflow: hidden;
+   white-space: pre-line;
+}
+.commentsDisplay{
+  width: 110px; 
+  overflow: hidden; 
+  white-space: pre-line;
+}
+#deletebtn{
+  color: red;
+}
+#trashbtn{
+  color: red;
+}
+#buffer{
+  position: relative;
+  left:50%;
+}

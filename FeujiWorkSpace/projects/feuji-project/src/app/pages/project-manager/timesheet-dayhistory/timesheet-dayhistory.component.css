@@ -1,0 +1,96 @@
+/* Popup container */
+.popup-container {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80%;
+  margin-left: 200px;
+  max-width: 800px;
+  background-color: #f8f9fa; /* Light background color */
+  border: 1px solid #ced4da; /* Light border color */
+  border-radius: 8px;
+  box-shadow: 5px 5px 40px rgba(0, 0, 0, 0.2);
+  padding: 20px;
+}
+
+/* Close button */
+.close-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 20px;
+  color: #6c757d; /* Button color */
+}
+
+.close-button:hover {
+  color: #343a40; /* Darker button color on hover */
+}
+
+/* Labels and values */
+.label {
+  font-weight: bold;
+}
+
+.value {
+  margin-left: 5px;
+}
+
+/* Table container */
+.table-container {
+  margin-top: 20px;
+}
+
+/* Table styles */
+.table {
+  width: 100%;
+  /* border-collapse: inherit; */
+}
+
+.table th,
+.table td {
+  padding: 8px;
+  text-align: center;
+  border: 1px solid #dee2e6; /* Light border color */
+}
+
+.table th {
+  background-color: #f2f2f2; /* Table header background color */
+}
+
+.table tbody tr:nth-child(even) {
+  background-color: #fff; /* Alternate row background color */
+}
+
+.Rejected {
+  color: rgb(240, 85, 85);
+  /* color: black; */
+  border-radius: 10px;
+  margin: 0px auto;
+  width: 100px;
+  align-items: center;
+  font-weight: 900;
+}
+
+.Approved {
+color: rgb(121, 197, 121);
+  /* color: black; */
+  border-radius: 10px;
+  margin: 0px auto;
+  width: 100px;
+  align-items: center;
+  font-weight: 900;
+}
+
+.Pending{
+  /* color: black; */
+  color:goldenrod;
+  border-radius: 10px;
+  margin: 0px auto;
+  width: 100px;
+  align-items: center;
+  font-weight: 1000;
+}

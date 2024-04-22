@@ -1,0 +1,47 @@
+
+ <div id="container">
+  <div id="section1">
+    <div *ngIf="!isLoggedIn" class="login-container">
+      <div id="header">
+        <h2><span class="bi bi-person" id="person"></span>{{ title }}</h2>
+      </div>
+      <form (ngSubmit)="login()" [formGroup]="formData">
+
+        <div>
+          <label class="form-label" for="email">Email:</label>
+          <div>
+            <input class="form-control" type="email" formControlName="email" [(ngModel)]="email" />
+            <span
+              *ngIf="formData.get('email')?.invalid && (formData.get('email')?.dirty || formData.get('email')?.touched)">
+              <span *ngIf="formData.get('email')?.errors?.['required']" class="spantags">Email is required</span>
+              <span *ngIf="formData.get('email')?.errors?.['pattern']" class="spantags">Invalid Email format</span>
+          </span>
+          </div>
+        </div><br>
+        <div>
+          <label class="form-label" for="password">Password:</label>
+          <div>
+            <input class="form-control" type="password" formControlName="password" required
+              [(ngModel)]="password" />
+          </div>
+          <div
+            *ngIf="formData.get('password')?.invalid && (formData.get('password')?.dirty || formData.get('password')?.touched)">
+            <span *ngIf="formData.get('password')?.errors?.['required']" class="spantags">Password is required</span>
+            <span *ngIf="formData.get('password')?.errors?.['minlength']" class="spantags">Invalid Password
+              format</span>
+          </div>
+        </div>
+        <span><a routerLink="/forgot-password">Forgot password</a></span>
+        <br>
+        <div id="log">
+          <button id="select" type="submit">Login</button>
+        </div>
+      </form>
+    </div>
+  </div>
+  <div id="section2">
+    <img id="image" src="../../../assets/img/login6.png">
+  </div>
+
+</div>
+

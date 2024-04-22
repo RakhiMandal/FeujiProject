@@ -1,0 +1,154 @@
+.table td {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.table1 {
+  background-color: blue;
+}
+
+.row1>th {
+  background-color: rgb(229, 233, 234);
+}
+
+.attencence {
+  margin-top: 3px;
+}
+
+.btn {
+  background-color: rgb(229, 233, 234);
+  border-color: rgb(229, 233, 234);
+  color: black;
+}
+
+.text-center {
+  width: 10%;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: small;
+}
+
+.form-control {
+  width: 65px;
+  text-align: center;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: small;
+}
+
+#con {
+  width: 100%;
+}
+
+#con1 {
+  width: 100%;
+}
+
+.sel-drop {
+  width: 110px;
+  background-color: #ffffff;
+  border: 1px solid #cdc7c7;
+  border-radius: 5px;
+  padding: 5px 10px;
+  color: #333;
+}
+#sel-drop-account
+{
+  width: 143px;
+  background-color: #ffffff;
+  border: 1px solid #cdc7c7;
+  border-radius: 5px;
+  padding: 5px 10px;
+  color: #333;
+}
+
+#comments {
+  width: 50%;
+}
+
+/* Inline CSS */
+
+[contenteditable="true"] {
+  border: 1px solid #ddd;
+  padding: 8px;
+  min-height: 30px;
+  outline: none;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+[contenteditable="true"]:hover {
+  border-color: #007bff;
+}
+h6
+{
+  font-family: Arial, Helvetica, sans-serif;
+   font-size: 25px;
+    font-weight: lighter;
+}
+.custom-p {
+  color: #333; 
+  font-size: 16px; 
+  font-weight: light;
+  margin-left: 10px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.Rejected {
+  color: rgb(240, 85, 85);
+  /* color: black; */
+  border-radius: 10px;
+  margin: 0px auto;
+  width: 100px;
+  align-items: center;
+  font-weight: 900;
+}
+
+.Approved {
+color: rgb(121, 197, 121);
+  /* color: black; */
+  border-radius: 10px;
+  margin: 0px auto;
+  width: 100px;
+  align-items: center;
+  font-weight: 900;
+}
+
+.Pending{
+  /* color: black; */
+  color:goldenrod;
+  border-radius: 10px;
+  margin: 0px auto;
+  width: 100px;
+  align-items: center;
+  font-weight: 1000;
+}
+.Submitted{
+  /* color: black; */
+  color:rgb(232, 235, 121);
+  border-radius: 10px;
+  margin: 0px auto;
+  width: 100px;
+  align-items: center;
+  font-weight: 1000;
+}
+.table-head
+{
+  color: #333; 
+  font-size: 13px; 
+  font-weight: light;
+  margin-left: 10px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+text-danger
+{
+  font-size: 10px; 
+  font-weight: light;
+
+  font-family: Arial, Helvetica, sans-serif;
+}
+span{
+  font-size: 20px; 
+  font-weight: light;
+
+  font-family: Arial, Helvetica, sans-serif;
+}

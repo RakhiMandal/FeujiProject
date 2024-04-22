@@ -1,0 +1,14 @@
+/* You can add global styles to this file, and also import other style files */
+@import 'custom-theme.scss';
+@import '../../../node_modules/bootstrap/dist/css/bootstrap.css';
+@import'../../../node_modules/bootstrap-icons/font/bootstrap-icons.css';
+@import '../../../node_modules/font-awesome/css/font-awesome.css';
+@import '../../../node_modules/@fortawesome/fontawesome-free/css/all.min.css';
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

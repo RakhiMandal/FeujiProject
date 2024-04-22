@@ -1,0 +1,75 @@
+.input-group-append{
+  justify-content: space-evenly;
+}
+.table tr th{
+  text-align:center;
+  font-size: 15px;
+  background-color: rgb(229, 233, 234);
+  color: black;
+}
+
+.table{
+  width: 95%;
+  margin-left: 4%;
+}
+
+.search{
+  padding: 8px 15px;
+  /* background-color: #007bff; */
+  background-color: rgb(164, 164, 236);
+  color:black;
+  width: 50px;
+  border: none;
+  cursor: pointer;
+
+}
+
+
+.search:hover {
+  background-color: #0056b3;
+}
+.tbody tr td{
+text-align: center;
+}
+.Rejected {
+  color: rgb(240, 85, 85);
+  /* color: black; */
+  border-radius: 10px;
+  margin: 0px auto;
+  width: 100px;
+  align-items: center;
+  font-weight: 900;
+}
+
+.Approved {
+color: rgb(121, 197, 121);
+  /* color: black; */
+  border-radius: 10px;
+  margin: 0px auto;
+  width: 100px;
+  align-items: center;
+  font-weight: 900;
+}
+
+.Pending{
+  /* color: black; */
+  color:goldenrod;
+  border-radius: 10px;
+  margin: 0px auto;
+  width: 100px;
+  align-items: center;
+  font-weight: 1000;
+}
+.calender{
+  content-visibility: 50px;
+}
+
+.dropdown-with-arrow {
+  background-image: url('data:image/svg+xml,<svg width="12" height="12" xmlns="http://www.w3.org/2000/svg"><path d="M1 3l5 6 5-6z"/></svg>');
+  background-repeat: no-repeat;
+  background-position: right center;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  padding-right: 30px; /* Adjust this value based on the arrow image size */
+}

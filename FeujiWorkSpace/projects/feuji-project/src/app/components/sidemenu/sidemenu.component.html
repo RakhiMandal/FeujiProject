@@ -1,0 +1,44 @@
+<!-- combined-sidemenu.component.html -->
+<div class="container-fluid">
+  <div class="bg-custom" >
+    <div class="p-2">
+
+      <a class="d-flex text-decoration-none mt-1 align-items-center">
+        <span class="fs-4 d-none d-sm-inline"></span>
+      </a>
+      <ng-container *ngFor="let menuItem of menuOptions">
+        <!-- Dashboard Button -->
+        <button *ngIf="menuItem.mainOption === 'Dashboard'; else regularButton" class="nav-link mainButton" aria-current="page" [class.active]="isActive(menuItem.mainOption)" [routerLink]="menuItem.routerLink">
+          <span class="d-flex align-items-lg-start" style="font-size: 20px; color: rgb(0, 0, 0);">
+            <i [class]="menuItem.icon" style="margin-right: 8px;"></i><span id="mainMenus">{{ menuItem.mainOption }}</span>
+          </span>
+        </button>
+        <!-- Main Menu Option with arrow -->
+        <ng-template #regularButton>
+          <button class="nav-link mainButton" aria-current="page" (click)="toggleSubmenu(menuItem.mainOption)" [class.active]="isActive(menuItem.mainOption)" (click)="rotateArrow(menuItem.mainOption)">
+            <span class="d-flex align-items-lg-start" style="font-size: 20px; color: rgb(0, 0, 0);">
+              <i [class]="menuItem.icon" style="margin-right: 8px;"></i><span id="mainMenus">{{ menuItem.mainOption }}</span>
+            </span>
+            <span class="fas fa-angle-right rotate" [class.rotate-arrow]="isArrowRotated[menuItem.mainOption]" ></span>
+          </button>
+          <!-- Sub-menu Options -->
+          <div class="subMenu" *ngIf="isActive(menuItem.mainOption)">
+            <ul class="nav nav-pills flex-column mt-2">
+              <li class="nav-item" *ngFor="let subOption of menuItem.subOptions">
+                <button class="nav-link" aria-current="page" [routerLink]="subOption.link">
+                  <span class="ms-2 d-none d-sm-inline" id="subMenus" >
+                    {{ subOption.label}}
+                  </span>
+                </button>
+              </li>
+            </ul>
+          </div>
+        </ng-template>
+      </ng-container>
+    </div>
+  </div>
+</div>
+<div class="container" id="con">
+  <router-outlet></router-outlet>
+  </div>
+

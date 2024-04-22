@@ -1,0 +1,39 @@
+.skill-category-form {
+  max-width: 450px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  height: 15rem;
+  background-color: rgb(255, 255, 255);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.skill-category-form h2 {
+  margin-top: 0;
+}
+
+.skill-category-form form {
+  display: flex;
+  flex-direction: column;
+}
+
+.skill-category-form input[type="text"] {
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.skill-category-form button[type="submit"] {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.skill-category-form button[type="submit"]:hover {
+  background-color: #0056b3;
+}

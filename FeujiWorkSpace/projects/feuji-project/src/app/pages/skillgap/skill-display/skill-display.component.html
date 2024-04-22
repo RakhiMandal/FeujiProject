@@ -1,0 +1,8 @@
+<div class="skill-category-form">
+  <h2>Enter New Skill Details</h2>
+  <form (ngSubmit)="saveSkill()" #skillForm="ngForm">
+    <input type="text" name="skillName" [(ngModel)]="newSkillName" placeholder="Enter new skill name" required>
+      <input type="text" name="skillDescription" [(ngModel)]="newSkillDescription" placeholder="Enter some description">
+      <button type="submit">Save</button>
+  </form>
+</div>

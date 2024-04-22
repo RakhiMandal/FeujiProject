@@ -1,0 +1,25 @@
+
+<nav class="navbar" >
+  <a class="navbar-brand" href="#" >
+    <img src="../../../assets/img/logo1.png"  alt="Logo">
+  </a>
+    <h1 class="navbar-text text-dark ">{{ title }}</h1>
+   <a style="color: black;" href="">
+
+<div class="image-container" >
+<img matTooltip="Logout" id="log" src="../../../assets/img/logout.png" alt="">
+</div>
+</a>
+
+
+  <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+    <ul class="navbar-nav mx-auto mt-2 mt-lg-0">
+      <span class="navbar-text text-center text-dark fs-4 fw-bolder">Timesheet</span>
+    </ul>
+    <form class="form-inline my-2 my-lg-0">
+      <button *ngIf="user" type="button" class="btn btn-primary  mx-5" (click)="logout()">Logout</button>
+    </form>
+  </div>
+
+</nav>
+

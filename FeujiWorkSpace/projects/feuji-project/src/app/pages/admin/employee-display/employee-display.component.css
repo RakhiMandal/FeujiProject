@@ -1,0 +1,122 @@
+<<<<<<< HEAD
+/*
+ .card {
+  height: 600px;
+  width: 100%;
+}
+
+.card-body {
+  justify-content: center;
+  text-align: center;
+  width: auto;
+  margin: 0 auto;
+}
+
+h1 {
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  text-align: center;
+  padding: 30px 0 0;
+  height: 100px;
+  width: 100%;
+  text-decoration: underline;
+  color: black;
+}
+
+.input-group {
+  background-color: black;
+  color: rgb(243, 117, 46);
+}
+
+.add {
+  margin-left: auto;
+  background-color: rgb(135, 135, 252);
+  color: rgb(243, 117, 46);
+}
+
+table {
+  border-collapse: collapse;
+  box-shadow: 0 5px 10px grey;
+  background-color: white;
+  text-align: center;
+  overflow: hidden;
+  justify-content: center;
+  margin-top: 80px;
+  width: 100%;
+}
+
+thead {
+  background-color: grey;
+}
+
+th {
+  text-transform: uppercase;
+  font-size: 0.7rem;
+  font-weight: 900;
+  background-color:grey;
+  color:black;
+  text-align: center;
+}
+
+td {
+  background-color: whitesmoke;
+}
+.input-group{
+  border-radius: 9px;
+} */
+=======
+.input-group-append{
+  justify-content: space-evenly;
+}
+.table tr th{
+  text-align:center;
+  font-size: 15px;
+  background-color: rgb(229, 233, 234);
+  color: black;
+}
+
+.table{
+  width: 95%;
+  margin-left: 4%;
+}
+
+button {
+  padding: 8px 15px;
+  /* background-color: #007bff; */
+  background-color: rgb(164, 164, 236);
+  color:black;
+  width: 50px;
+  border: none;
+  border-radius: 60px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+.tbody tr td{
+text-align: center;
+}
+.Inactive {
+  color: rgb(240, 85, 85);
+  /* color: black; */
+  border-radius: 50px;
+  margin: 0px auto;
+  width: 100px;
+  align-items: center;
+  font-weight: 900;
+}
+
+.Active {
+color: rgb(121, 197, 121);
+  /* color: black; */
+  border-radius: 10px;
+  margin: 0px auto;
+  width: 100px;
+  align-items: center;
+  font-weight: 900;
+}
+.rowbutton{
+  display: flex;
+  justify-content: space-evenly;
+}
+>>>>>>> 3a3f51af0db80ac59b2ef5a8f23f1ff226c5a4b1

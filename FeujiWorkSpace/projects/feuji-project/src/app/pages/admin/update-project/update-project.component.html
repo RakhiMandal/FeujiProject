@@ -1,0 +1,89 @@
+
+
+<div class="accountheader"><h1>Add Projects</h1></div>
+<div class="card">
+
+    <h1 class="mb-3 employecolor" style="font-size: 1.5empx; font-family: Arial, Helvetica, sans-serif;">
+        Add Projects</h1>
+    <form class="formborderbox round round-3 p-4 mt-3" (submit)="updateAccountProject(accountProject.uuid,accountProject.isDeleted)" 
+        #accountProjectForm="ngForm">
+        <div class="row">
+            <div class="col-md-6 mb-3 column">
+                <label for="projectAId" class="form-label">Project ID:</label>
+                <input type="text" class="form-control" id="projectAId" placeholder="Enter your Project ID"
+                    [(ngModel)]="accountProject.projectAId" name="projectAId">
+            </div>
+            <div class="col-md-6 mb-3 column">
+                <label for="projectName" class="form-label">Project Name:</label>
+                <input type="text" class="form-control" id="projectName" placeholder="Enter your Project Name"
+                    [(ngModel)]="accountProject.projectName" name="projectName">
+            </div>
+            <div class="col-md-6 mb-3 column">
+                <label for="accountId" class="form-label">Account Name:</label>
+                <select class="form-select" id="accountId" [(ngModel)]="accountProject.accountId" name="accountId">
+                <option class="dropdown"  [ngValue]="accountProject.accountId">{{ accountProject.accountName }}
+                    </option>  
+                    <option class="dropdown" *ngFor="let account of accountList" [ngValue]="account.accountId">{{ account.accountName }}
+                    </option>
+                </select>
+            </div>
+            <div class="col-md-6 mb-3 column">
+                <label for="priority" class="form-label">Priority:</label>
+                <select class="form-select" id="priority" [(ngModel)]="accountProject.priority" name="priority">
+                <option class="dropdown"  [ngValue]="accountProject.priority">{{ accountProject.priorityName}}</option>  -->
+                <option class="dropdown" *ngFor="let priority of priorityTypes" [ngValue]="priority.referenceDetailId">{{ priority.referenceDetailValue}}</option>
+                </select>
+              </div>
+
+            <div class="col-md-6 mb-3 column">
+                <label for="projectManagerId" class="form-label">Project Manager :</label>
+                <select class="form-select" id="projectManagerId" [(ngModel)]="accountProject.projectManagerId"
+                    name="projectManagerId">
+                <option [ngValue]="accountProject.projectManagerId">{{accountProject.firstName}}
+                        </option>  
+                        <option *ngFor="let employee of employeeList" [ngValue]="employee.employeeId">{{employee.firstName}}
+                            {{employee.lastname}}</option>
+                    </select>
+            </div>
+            <div class="col-md-6 mb-3 column">
+                <label for="noOfBillingHours" class="form-label">Number of Billing Hours:</label>
+                <input type="number" class="form-control" id="noOfBillingHours"
+                    placeholder="Enter Number of Billing Hours" [(ngModel)]="accountProject.noOfBillingHours"
+                    name="noOfBillingHours">
+            </div>
+            <div class="col-md-6 mb-3 column">
+                <label for="plannedStartDate" class="form-label">Planned Start Date:</label>
+                <input type="date" class="form-control" id="plannedStartDate"
+                    [(ngModel)]="accountProject.plannedStartDate" name="plannedStartDate">
+            </div>
+
+            <div class="col-md-6 mb-3 column">
+                <label for="plannedEndDate" class="form-label">Planned End Date:</label>
+                <input type="date" class="form-control" id="plannedEndDate" [(ngModel)]="accountProject.plannedEndDate"
+                    name="plannedEndDate">
+            </div>
+            <div class="col-md-6 mb-3 column">
+              <label for="actualStartDate" class="form-label">Actual Start Date:</label>
+              <input type="date" class="form-control" id="actualStartDate" [(ngModel)]="accountProject.actualStartDate"
+                  name="actualStartDate">
+          </div>
+            <div class="col-md-6 mb-3 column">
+                <label for="actualEndDate" class="form-label">Actual End Date:</label>
+                <input type="date" class="form-control" id="actualEndDate" [(ngModel)]="accountProject.actualEndDate"
+                    name="actualEndDate">
+            </div>
+             <div class="col-md-6 mb-3 column">
+                <label for="projectStatus" class="form-label">Status:</label>
+                <select class="form-select" id="projectStatus" [(ngModel)]="accountProject.projectStatus" name="projectStatus">
+                  <option class="dropdown"  [ngValue]="accountProject.projectStatus">{{accountProject.projectStatusName }}</option> 
+                  <option class="dropdown" *ngFor="let status1 of statusTypes" [ngValue]="status1.referenceDetailId">{{ status1.referenceDetailValue}}</option>
+                </select>
+              </div>
+        </div>
+        <div class="row button">
+            <button type="submit" class="btn btnbg">Submit</button>
+            <button  class="btn btnbg" routerLink="/admin/projects">Back</button>
+        </div>
+    </form>
+
+</div>

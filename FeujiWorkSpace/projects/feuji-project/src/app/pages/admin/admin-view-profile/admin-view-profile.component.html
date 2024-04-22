@@ -1,0 +1,42 @@
+<div class="container mt-5">
+  <div class="card">
+    <div class="card-body">
+      <h2 class="card-title" style="text-align: center;">Employee Profile</h2>
+
+      <div *ngIf="employee">
+        <div class="row">
+          <div class="col-md-6">
+            <!-- <p>{{employee |json}}</p> -->
+            <p><strong>Employee Code:</strong> {{ employee.employeeCode }}</p>
+            <p><strong>First Name:</strong> {{ employee.firstName }}</p>
+            <p><strong>Middle Name:</strong> {{ employee.middleName }}</p>
+            <p><strong>Last Name:</strong> {{ employee.lastName }}</p>
+          </div>
+
+         
+        </div>
+
+        <div class="row">
+          <div class="col-md-6">
+            <p><strong>Designation:</strong> {{ employee.designation }}</p>
+            <p><strong>Email:</strong> {{ employee.email }}</p>
+           
+            <p><strong>Date of Joining:</strong> {{ employee.dateOfJoining | date }}</p>
+         
+            <!-- <p><strong>Employment Type:</strong> {{ employee.employmentType }}</p>
+            <p><strong>Employee Status:</strong> {{ employee.status }}</p> -->
+            <p><strong>Delivery Unit ID:</strong> {{ employee.deliveryUnitId }}</p>
+            <p><strong>Business Unit ID:</strong> {{ employee.businessUnitId }}</p>
+          </div>
+        </div>
+      </div>
+      <div *ngIf="!employee">
+        <p>No employee details available.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+

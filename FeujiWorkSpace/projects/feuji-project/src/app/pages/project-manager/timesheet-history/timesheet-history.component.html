@@ -1,0 +1,69 @@
+<div class="container-fluid">
+
+  <div class="row " style="height: 90px;" >
+    
+    <div class="input-group mt-5 justify-content-end">
+      <div class="input-group-append" style="display: flex">
+      <select [(ngModel)]="selectedAccountName" id="accountName" name="accountName" class="custom-select">
+        <!-- <option disabled="disabled" >Select Account</option> -->
+        <option *ngFor="let acc of account" [value]="acc.accountName" >{{acc.accountName}}</option>
+  </select>
+  <!-- <label for="month">Month:</label> -->
+  <select   [(ngModel)]="selectedMonth" id="month" name="month" class="custom-select">
+    <option *ngFor="let month of months" [value]="month">{{month}}</option>
+  </select>
+
+  <!-- <label for="year">Year:</label> -->
+  <select [(ngModel)]="selectedYear" id="year" name="year" class="custom-select">
+    <option *ngFor="let year of years" [value]="year">{{year}}</option>
+  </select>
+
+  <button (click)="fetchData()" class="search"><i class="bi bi-search"></i></button>
+    
+        
+  </div>
+  </div>
+
+  <div>
+    
+
+ </div>
+
+
+  <table class="table mt-5" >
+    <thead>
+      <tr  class="table-dark">
+<th  class="text-center">Project Name</th>
+        <th  class="text-center">Week</th>
+        
+        <th  class="text-center">Billing-Hours</th>
+        <th  class="text-center">Non-Billing-Hours</th>
+        <th class="text-center">Leaves</th>
+        <th class="text-center">Approved By</th>
+        <th class="text-center">Status</th>
+        <th class="text-center">Action</th>
+      </tr>
+    </thead>
+      <tbody class="tbody" >
+<tr *ngFor="let item of timesheetData">
+  <td>{{ item.projectName}}</td>
+  <td>{{ item.weekStartDate | date:'dd-MMM'}}  - {{ item.weekEndDate | date:'dd-MMM-yyyy'}}</td>
+  <td>{{ item.billingHours }}</td>
+  <td>{{ item.nonBillinghours }}</td>
+  <td>{{ item.leaveDays }}</td>
+  <td>{{ item.empFirstName}}  {{ item.empLastName}}</td>
+  <td><p class="{{ item.status }}">{{ item.status }}</p></td>
+  <td>
+    <button type="button" class="btn btn-warning ml-2 bg bg-light" 
+            (click)="openPopup(item.uuId, item.projectName, item.status,item.empFirstName
+            ,item.empLastName,item.weekStartDate, item.weekEndDate )">
+      <i class="bi bi-calendar2-month bi-calendar2"></i>
+    </button>
+  </td>
+  
+       
+      </tr>
+     
+    </tbody>
+  </table>
+</div>

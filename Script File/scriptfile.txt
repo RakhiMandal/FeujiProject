@@ -1,0 +1,118 @@
+pipeline {
+    agent any
+
+    tools {
+        // Install the Maven version configured as "M3" and add it to the path.
+        maven "M3"
+    }
+   
+    environment {
+        DOCKERHUB_CREDENTIALS = credentials('dockerhub')
+    }
+
+    stages {
+     stage('SkillgapandTimesheet Build') {
+            steps {
+                 
+             git branch: 'master', url: 'https://github.com/NandiniReddyPalli/TimeSheetSkillGapProject'
+
+                  bat "mvn -f TimeSheetManagement/account_service/pom.xml -Dmaven.test.failure.ignore=true clean install"
+                  bat "mvn -f TimeSheetManagement/reference_service/pom.xml -Dmaven.test.failure.ignore=true clean install"
+                  bat "mvn -f TimeSheetManagement/timesheet_entry_service/pom.xml -Dmaven.test.failure.ignore=true clean install"
+               	   bat "mvn -f java/TimeSheetManagement/SkillSet/pom.xml -Dmaven.test.failure.ignore=true clean install"
+                  bat "mvn -f java/TimeSheetManagement/account_project_service/pom.xml -Dmaven.test.failure.ignore=true clean install"
+                 
+                  bat "mvn -f java/TimeSheetManagement/employee_service/pom.xml -Dmaven.test.failure.ignore=true clean install"
+                  bat "mvn -f java/TimeSheetManagement/employeeskill_service/pom.xml -Dmaven.test.failure.ignore=true clean install"
+               
+                  bat "mvn -f java/TimeSheetManagement/skillgap_service/pom.xml -Dmaven.test.failure.ignore=true clean install"
+
+                 
+             
+            }  
+        }
+
+        stage('Docker Build') {
+            agent any
+            steps {
+                bat '''
+                 
+                  docker build --pull --rm -f "C:/ProgramData/Jenkins/.jenkins/workspace/Timesheet/TimeSheetManagement/account_service/Dockerfile" -t staccountservice:latest "C:/ProgramData/Jenkins/.jenkins/workspace/Timesheet/TimeSheetManagement/account_service/"
+                                     
+                   docker build --pull --rm -f "C:/ProgramData/Jenkins/.jenkins/workspace/Timesheet/TimeSheetManagement/reference_service/Dockerfile" -t streferenceservice:latest "C:/ProgramData/Jenkins/.jenkins/workspace/Timesheet/TimeSheetManagement/reference_service/"
+
+                   docker build --pull --rm -f "C:/ProgramData/Jenkins/.jenkins/workspace/Timesheet/TimeSheetManagement/timesheet_entry_service/Dockerfile" -t sttimesheetentryservice:latest "C:/ProgramData/Jenkins/.jenkins/workspace/Timesheet/TimeSheetManagement/timesheet_entry_service/"
+		  
+		 docker build --pull --rm -f "C:/ProgramData/Jenkins/.jenkins/workspace/Timesheet/java/TimeSheetManagement/SkillSet/DockerFile" -t stskillsetservice:latest "C:/ProgramData/Jenkins/.jenkins/workspace/Timesheet/java/TimeSheetManagement/SkillSet/"
+
+                    docker build --pull --rm -f "C:/ProgramData/Jenkins/.jenkins/workspace/Timesheet/java/TimeSheetManagement/account_project_service/DockerFile" -t staccountprojectservice:latest "C:/ProgramData/Jenkins/.jenkins/workspace/Timesheet/java/TimeSheetManagement/account_project_service/"
+
+                   
+
+                   docker build --pull --rm -f "C:/ProgramData/Jenkins/.jenkins/workspace/Timesheet/java/TimeSheetManagement/employee_service/DockerFile" -t stemployeeservice:latest "C:/ProgramData/Jenkins/.jenkins/workspace/Timesheet/java/TimeSheetManagement/employee_service/"
+
+                   docker build --pull --rm -f "C:/ProgramData/Jenkins/.jenkins/workspace/Timesheet/java/TimeSheetManagement/employeeskill_service/DockerFile" -t stemployeeskillservice:latest "C:/ProgramData/Jenkins/.jenkins/workspace/Timesheet/java/TimeSheetManagement/employeeskill_service/"
+
+    
+
+                   docker build --pull --rm -f "C:/ProgramData/Jenkins/.jenkins/workspace/Timesheet/java/TimeSheetManagement/skillgap_service/DockerFile" -t stskillgapservice:latest "C:/ProgramData/Jenkins/.jenkins/workspace/Timesheet/java/TimeSheetManagement/skillgap_service/"
+
+
+                '''
+            }
+        }
+       
+        stage('Login') {
+            steps {
+                script {
+                    withCredentials([usernamePassword(credentialsId: 'dockerhub', passwordVariable: 'DOCKERHUB_PASSWORD', usernameVariable: 'DOCKERHUB_USERNAME')]) {
+                        bat 'docker logout'
+                        bat 'docker login -u corenuts -p Horizon1@'
+                    }
+                }
+            }
+        }
+   
+        stage('Push') {
+            steps {
+             
+                bat'docker image tag staccountservice:latest docker.io/corenuts/staccountservice:latest'
+                bat'docker image push docker.io/corenuts/staccountservice:latest'
+               
+                bat'docker image tag streferenceservice:latest docker.io/corenuts/streferenceservice:latest'
+                bat'docker image push docker.io/corenuts/streferenceservice:latest'
+
+                bat'docker image tag sttimesheetentryservice:latest docker.io/corenuts/sttimesheetentryservice:latest'
+                bat'docker image push docker.io/corenuts/sttimesheetentryservice:latest'
+
+                bat'docker image tag stskillsetservice:latest docker.io/corenuts/stskillsetservice:latest'
+                bat'docker image push docker.io/corenuts/stskillsetservice:latest'
+               
+                bat'docker image tag staccountprojectservice:latest docker.io/corenuts/staccountprojectservice:latest'
+                bat'docker image push docker.io/corenuts/staccountprojectservice:latest'
+               
+        
+
+                bat'docker image tag stemployeeservice:latest docker.io/corenuts/stemployeeservice:latest'
+                bat'docker image push docker.io/corenuts/stemployeeservice:latest'
+
+                bat'docker image tag stemployeeskillservice:latest docker.io/corenuts/stemployeeskillservice:latest'
+                bat'docker image push docker.io/corenuts/stemployeeskillservice:latest'
+               
+                
+
+                bat'docker image tag stskillgapservice:latest docker.io/corenuts/stskillgapservice:latest'
+                bat'docker image push docker.io/corenuts/stskillgapservice:latest'
+               
+            }
+}
+}
+}
+
+
+
+
+
+
+
+

@@ -1,0 +1,106 @@
+.container-fluid {
+  position: fixed;
+  top: 8.5%;
+  height: 100%;
+  width: 18%;
+  display: flex;
+  flex-direction:column;
+  overflow-y:hidden;
+  max-height: 90vh;
+  background-color: rgb(236,240,244);
+}
+.submenu {
+  display: none;
+  background-color: white;
+  list-style: none;
+}
+.subMenu{
+  position: relative;
+  top: -16px;
+  background-color: white;
+}
+.bg-custom {
+  background-color: rgb(236, 240, 244);
+}
+.submenu.active {
+  display: block;
+}
+.mainButton{
+  width: 100%;
+  margin-bottom: 15px;
+  margin-top: 15px;
+  border: none;
+  display: flex;
+  justify-content: space-between;
+  background-color: rgb(236,240,244);
+}
+.mainButton.active {
+  border-bottom: 2px solid gray;
+}
+
+.mainMenu {
+  font-size: 20px;
+  color: rgb(0, 0, 0);
+}
+
+.submenu button {
+  font-size: 20px;
+  color: rgb(0, 0, 0);
+  border: none;
+  background: none;
+}
+
+.container{
+  height: 100vh;
+  width: 75%;
+  position: relative;
+  top: 10%;
+left: 10%;
+}
+
+.rotate {
+  transition: transform 0.3s ease;
+}
+
+.rotate.rotate-arrow {
+  transform: rotate(90deg);
+}
+.nav-item {
+  width: 100%;
+  display: flex;
+   justify-content: center;
+}
+.nav-item:hover{
+  background-color:rgb(236,236,236);
+}
+#subMenus{
+  font-size: 18px; color: rgb(0,0,0);
+}
+
+@media only screen and (max-width: 1090px) {
+  #mainMenus{
+    font-size: 1.2rem;
+  }
+
+  #subMenus{
+    font-size: 10px; 
+  }
+}
+@media only screen and (max-width: 850px) {
+  #mainMenus{
+    font-size: .8rem;
+  }
+
+  #subMenus{
+    font-size: 8px; 
+  }
+}
+
+@media only screen and (max-width: 667px) {
+  #mainMenus{
+   display: none;
+  }
+  #subMenus{
+    font-size: 7px; 
+  }
+}

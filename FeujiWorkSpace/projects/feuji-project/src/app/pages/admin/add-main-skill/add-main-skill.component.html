@@ -1,0 +1,108 @@
+<div class="col-md-1 mb-3">
+  <button id="btn1" class="btn float-lg-end" matTooltip="Add Skill Category" style="border-radius: 50%;"
+    (click)="addNewRow()">
+    <i class="fa-solid fa-plus"></i>
+  </button>
+  <div id="popupForm" class="popup">
+    <form class="popup-content">
+      <span class="close" onclick="closePopup()">&times;</span>
+    </form>
+  </div>
+</div>
+
+<div class="container">
+  <mat-accordion>
+    <mat-expansion-panel class="subCategory" *ngFor="let item of accordionData"
+      (opened)="onSelectSkillCategory(item.referenceDetailValue)">
+      <mat-expansion-panel-header>
+        <mat-panel-title class="panelTitle" id="panel">
+          {{ item.referenceDetailValue }}
+          <button class="btn btn remove-button btn-sm"
+            (click)="openConfirmationDialogForCategory(item.referenceDetailValue)">
+            <i class="fa-solid fa-trash" id="trashbtn"></i>
+          </button>
+
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+      <button class="btn float-lg-end" matTooltip="Add Sub Skill Category"
+        (click)="addNewSubSkill(selectedSkillCategory)">
+        <i class="fa-solid fa-plus"></i>
+      </button>
+
+
+      <mat-expansion-panel class="subCategory" style="box-shadow: none;" [expanded]="false" [disabled]="true">
+        <mat-expansion-panel-header>
+
+        </mat-expansion-panel-header>
+
+      </mat-expansion-panel>
+      <mat-accordion>
+        <div *ngIf="accordionSubData">
+          <mat-expansion-panel class="skillName" *ngFor="let subItem of accordionSubData"
+            (opened)="anyPanelExpanded = true" #panel="matExpansionPanel" (onClick)="enableCount()"
+            (opened)="onSelectTechCat(subItem.referenceDetailId)">
+            <mat-expansion-panel-header>
+              <mat-panel-title class="panelTitle" id="panel">
+                <div>
+                  {{ subItem.referenceDetailValue }}
+                  <span *ngIf="selectedSubItem && selectedSubItem.referenceDetailId === 
+                subItem.referenceDetailId && accordionSubData.length > 0">
+                    - {{ size }}
+                  </span>
+
+                </div>
+                <div>
+                  <button class="btn btn remove-button btn-sm"
+                    (click)="openConfirmationDialogSubCategory(subItem.referenceDetailId)">
+                    <i class="fa-solid fa-trash" id="trashbtn"></i>
+                  </button>
+                </div>
+              </mat-panel-title>
+            </mat-expansion-panel-header>
+            <button class="btn float-lg-end" matTooltip="Add Skill"
+              (click)="addNewSkill(selectedSubSkillCategory,selectedSkillCategory)">
+              <i class="fa-solid fa-plus"></i>
+            </button>
+            <mat-expansion-panel *ngIf="allSkills.length>0" class="skillName" style="box-shadow: none;"
+              [disabled]="true" [expanded]="false">
+              <mat-expansion-panel-header>
+                <div id="header">
+                  <p class="heads">Technology</p>
+                  <p class="heads">isActive</p>
+                </div>
+
+
+              </mat-expansion-panel-header>
+            </mat-expansion-panel>
+            <mat-expansion-panel class="subCategory" *ngFor="let item of allSkills" [disabled]="true" [expanded]="false"
+              [hideToggle]="true" (opened)="onSelectSkill(item.skillId)">
+
+              <mat-expansion-panel-header>
+                <mat-panel-title class="panelTitle" id="status">
+                  <p> {{ item.skillName }}</p>
+                  <div class="custom-checkbox">
+                    <input type="checkbox" [(ngModel)]="item.status" (click)="updateStatus(item)">
+
+                  </div>
+                </mat-panel-title>
+              </mat-expansion-panel-header>
+
+
+            </mat-expansion-panel>
+
+            <div *ngIf="allSkills.length>0" class="SavingAndCancelling">
+              <button id="save" (click)="saveChanges()">
+                Save
+              </button>
+              <button id="cancel" (click)="cancelChanges()">
+                Cancel
+              </button>
+            </div>
+
+
+          </mat-expansion-panel>
+        </div>
+      </mat-accordion>
+    </mat-expansion-panel>
+  </mat-accordion>
+</div>

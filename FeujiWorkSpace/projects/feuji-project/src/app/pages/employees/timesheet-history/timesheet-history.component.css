@@ -1,0 +1,101 @@
+
+.custom-select {
+   
+  border-radius: 5px;
+  background-color: rgb(229, 233, 234) ;
+  display: flex;
+  justify-content: space evenly;
+  padding: 8px;
+  color: black;
+}
+
+
+.input-group-append{
+  justify-content: space-evenly;
+}
+.table tr th{
+  text-align:center;
+  font-size: 15px;
+  background-color: rgb(229, 233, 234);
+  color: black;
+}
+
+.table{
+  width: 95%;
+  margin-left: 4%;
+}
+
+.search{
+  padding: 8px 15px;
+  /* background-color: #007bff; */
+  background-color: rgb(164, 164, 236);
+  color:black;
+  width: 50px;
+  border: none;
+  cursor: pointer;
+  
+}
+/* timesheet-dayhistory.component.css */
+
+
+.search:hover {
+  background-color: #0056b3;
+}
+.tbody tr td{
+text-align: center;
+}
+.Rejected {
+  color: rgb(240, 85, 85);
+  /* color: black; */
+  border: 1px solid rgb(240, 85, 85);
+  border-radius: 10px;
+  margin: 0px auto;
+  width: 100px;
+  align-items: center;
+  font-weight: 900;
+}
+
+.Approved {
+color: rgb(121, 197, 121);
+  /* color: black; */
+  border: 1px solid rgb(121, 197, 121);
+  border-radius: 10px;
+  margin: 0px auto;
+  width: 100px;
+  align-items: center;
+  font-weight: 900;
+}
+
+.Pending{
+  /* color: black; */
+  color:goldenrod;
+  border: 1px solid goldenrod;
+  /* background-color: #0056b3; */
+  /* border-width: 5px; */
+  border-radius: 10px;
+  /* border: 10px; */
+  margin: 0px auto;
+  width: 100px;
+  align-items: center;
+  font-weight: 1000;
+}
+.calender{
+  content-visibility: 50px;
+  border-color: #ffff;
+  background-color: #ffff;
+  color: #ffff;
+}
+button {
+  padding: 8px 15px;
+  /* background-color: #007bff; */
+  background-color: rgb(164, 164, 236);
+  color:black;
+  width: 50px;
+  border: none;
+  /* border-radius: 60px; */
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #0056b3;
+}

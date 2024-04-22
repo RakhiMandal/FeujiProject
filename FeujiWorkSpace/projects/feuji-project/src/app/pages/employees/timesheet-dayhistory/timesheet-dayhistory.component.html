@@ -1,0 +1,53 @@
+
+<!-- Popup container -->
+<div class="popup-container">
+  <!-- Close button -->
+  <button class="close-button" (click)="closePopup()">
+    <i class="fas fa-times"></i>
+  </button>
+  <div>
+    <div class="popup-content">
+      <span class="label">Week : </span>
+      <span class="value">{{ weekStartDate | date:'dd-MMM'}} - {{ weekEndDate | date:'dd-MMM-yyyy' }}
+      </span>
+      <br>
+      <span class="label">Project Name : </span>
+      <span class="value">{{ projectName }}</span>
+      <br>
+      <span class="label">Status : </span>
+      <span class="value  {{ status }}">{{ status }}</span>
+      <br>
+      <span class="label">Approved By : </span>
+      <span class="value">{{ empFirstName }} {{ empLastName }}</span>
+
+    </div>
+
+  </div>
+  <!-- Table content -->
+  <div class="table-container">
+    <table class="table">
+      <!-- Table headers -->
+      <thead>
+        <tr>
+          <th class="text-center">Date</th>
+          <th class="text-center">Task Type</th>
+          <th class="text-center">Task</th>
+          <th class="text-center">Billing Hours</th>
+          <th class="text-center">Non-Billing Hours</th>
+          <th class="text-center">Leaves</th>
+        </tr>
+      </thead>
+      <!-- Table body -->
+      <tbody>
+        <tr *ngFor="let item of timesheetData">
+          <td class="text-center">{{ item.date | date:'dd-MMM-yyyy' }}</td>
+          <td class="text-center">{{ item.taskTypeName }}</td>
+          <td class="text-center">{{ item.taskName }}</td>
+          <td class="text-center">{{ item.billingHours }}</td>
+          <td class="text-center">{{ item.nonBillinghours }}</td>
+          <td class="text-center">{{ item.leaveDays }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

@@ -1,0 +1,81 @@
+<div class="container-fluid">
+    <div class="row flex-nowrap">
+      <div class="bg-dark">
+        <div class="bg-dark p-2">
+          <a class="d-flex text-decoration-none mt-1 align-items-center">
+            <span class="fs-4 d-none d-sm-inline"></span>
+          </a>
+          <ul class="nav nav-pills flex-column mt-4">
+  
+            <li class="nav-item">
+              <button class="nav-link submenu-toggle" aria-current="page" (click)="toggleSubmenu('submenu1')">
+                <span class="ms-2 d-none d-sm-inline" style="font-size: 18px; color: rgb(243,117,46);">
+                  <i class="bi bi-person" style="font-size: 18px; color: rgb(243,117,46);"></i>
+                  My Profile
+                </span>
+              </button>
+            </li>
+  
+   <li class="nav-item">
+             
+  
+            </li>
+  
+            <li class="nav-item">
+  
+  
+            </li>
+  
+            <li class="nav-item">
+  
+  
+              <button class="nav-link submenu-toggle" aria-current="page" (click)="toggleSubmenu('submenu5')">
+                <span class="ms-2 d-none d-sm-inline" style="font-size: 18px; color: rgb(243,117,46);">
+                  <i class="bi bi-calendar-check" style="font-size: 18px; color: rgb(243,117,46);"></i>
+                  Timesheet
+                  <span class="plus-sign">+</span>
+                </span>
+              </button>
+              <ul class="submenu submenu5">
+                <li class="nav-item">
+                  <a class="nav-link" aria-current="page"><span class="ms-2 d-none d-sm-inline" routerLink="timesheethome">Timesheet</span></a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" aria-current="page"><span class="ms-2 d-none d-sm-inline" routerLink="timesheethistory">submenu 2</span></a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" aria-current="page"><span class="ms-2 d-none d-sm-inline" routerLink="timesheetaproval">timesheet for approval</span></a>
+                </li>
+              </ul>
+  
+              <!-- End of Submenu -->
+  
+  
+            </li>
+  
+            <li class="nav-item">
+              <button class="nav-link submenu-toggle" aria-current="page" (click)="toggleSubmenu('submenu6')">
+                <span class="ms-2 d-none d-sm-inline" style="font-size: 18px; color: rgb(243,117,46);">
+                  <i class="bi bi-journal-text" style="font-size: 18px; color: rgb(243,117,46);"></i>
+                  Skill gap
+                  <span class="plus-sign">+</span>
+                </span>
+              </button>
+              <ul class="submenu submenu6">
+                <li class="nav-item">
+                  <a class="nav-link" aria-current="page"><span class="ms-2 d-none d-sm-inline"routerLink="showEmployeeSkills">My Skills</span></a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" aria-current="page"><span class="ms-2 d-none d-sm-inline" routerLink="showSkillGap">My Skill Gap</span></a>
+                </li>
+              </ul>
+            </li>
+  
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+<div>
+  <router-outlet></router-outlet> 
+</div>

@@ -1,0 +1,67 @@
+#div{
+  position: relative;
+  left: 30px;
+  top: 20px;
+}
+.container-fluid {
+  max-width: 700px; 
+  margin: auto;
+}
+
+
+h1.employecolor {
+  color: #007bff; 
+}
+
+
+.formborderbox {
+  border: 1px solid #ced4da; /* Light grey border */
+  border-radius: 0.75rem; /* Adjust border-radius as needed, round-3 is not a standard Bootstrap class */
+  background-color: #f8f9fa; /* Light background color */
+}
+
+
+.input {
+  padding: 5px;
+  border-radius: 0.5rem; /* Slightly rounded borders for inputs */
+  width: 80%;
+  margin-bottom: 10px;
+}
+.text-danger {
+  font-size: 0.875rem; /* Smaller font size for error messages */
+}
+#submit{
+  display: flex;
+  position: relative;
+  top: 20px;
+  left: 25%;
+  
+
+}
+.button-container {
+  position: relative;
+  left: 50px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.btn {
+  background-color: #007bff; 
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.btnbg {
+  background-color: #007bff; 
+  color: white;
+}
+
+.btn:disabled {
+  background-color: #ccc;
+  color: #666;
+  cursor: not-allowed;
+}

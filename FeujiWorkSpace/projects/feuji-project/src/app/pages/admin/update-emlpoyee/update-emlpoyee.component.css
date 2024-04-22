@@ -1,0 +1,52 @@
+.card{
+    position: relative;
+    padding: 0;
+    width:100%;
+    background-color: rgb(229, 233, 234);
+  }
+  .employecolor{
+    color: rgb(164, 164, 236);
+    text-align: center;
+  }
+  .formborderbox{
+    border-radius: 5px;
+  
+    padding: 15px;
+  
+  }
+  .input{
+    height: 35px;
+    width: 200px;
+    border-radius: 6px;
+   border: 1px solid #333;
+  }
+  .w-30{
+    width: 45%;
+  }
+  button {
+    /* padding: 8px 15px; */
+    /* background-color: #007bff; */
+    margin-left: 20px;
+    background-color: rgb(164, 164, 236);
+    color:black;
+    width: 200px;
+    border: none;
+    border-radius: 60px;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #0056b3;
+  }
+  .text{
+    font-size: 20px;
+    font-weight: 500px;
+  }
+  
+  .rowbutton{
+    display: flex;
+    justify-content: space-evenly;
+  }
+  /* .button{
+    margin-left: 500px;
+  } */

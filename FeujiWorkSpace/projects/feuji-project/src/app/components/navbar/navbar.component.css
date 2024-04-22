@@ -1,0 +1,26 @@
+.navbar {
+  background-color: #ecf0f4;
+  display: flex;
+  justify-content:space-between;
+  align-content: center;
+  height: 4rem;
+  width: 100%;
+  position: fixed;
+  top:0;
+  z-index:3;
+
+}
+h1{
+
+  font-family: verdana, geneva, sans-serif;
+}
+
+.navbar .navbar-brand img {
+  height: 62px;
+  width: 116px;
+
+}
+#log{
+  padding-right: 1rem;
+}
+

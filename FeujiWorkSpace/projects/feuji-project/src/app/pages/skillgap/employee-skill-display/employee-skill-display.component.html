@@ -1,0 +1,236 @@
+<div class="container mt-2 p-0">
+  <div class="row m-0">
+    <div class="ms-9">
+      <div class="col-md-1 mb-3">
+        <button id="addbutton" class="btn float-lg-end" (click)="addNewRow()">
+          <i class="fa-solid fa-plus"></i>
+        </button>
+      </div>
+    </div>
+
+    <table class="table table-borderedless mt-5 b">
+      <thead class="table-borderedless sticky-header">
+        <tr class="table-head" class="row1">
+          <th>Skill Category</th>
+          <th>SubSkill Category</th>
+          <th>Skill Name</th>
+          <th>Skill Type</th>
+          <th>Skill Competency</th>
+          <th>Certification</th>
+          <th>Description</th>
+          <th>Comments</th>
+          <th>Experience(yrs)</th>
+          <th>Actions</th>
+
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let oneEmployeeSkill of employeesSkillGet; let i = index" class="ngcontainer">
+          <ng-container *ngIf="!isEditMode(i); else editModeTemplate">
+            <td *ngIf="!isEditMode(i)">{{ oneEmployeeSkill.skillCategory }}</td>
+            <td *ngIf="!isEditMode(i)">{{ oneEmployeeSkill.TechnicalCategory }}</td>
+            <td *ngIf="!isEditMode(i)">{{ oneEmployeeSkill.skillName }}</td>
+            <td>{{ oneEmployeeSkill.skillTypeId }}</td>
+            <td>{{ oneEmployeeSkill.competencyLevelId }}</td>
+            <td>{{ oneEmployeeSkill.certification }}</td>
+            <td>
+              <div class="descriptionDisplay">{{ oneEmployeeSkill.description }}
+              </div>
+            </td>
+            <td>
+              <div class="commentsDisplay">{{ oneEmployeeSkill.comments }}</div>
+            </td>
+            <td>{{ oneEmployeeSkill.yearsOfExp }}</td>
+          </ng-container>
+          <ng-template #editModeTemplate>
+            <td *ngIf="isEditMode(i)">{{ oneEmployeeSkill.skillCategory }}</td>
+            <td *ngIf="isEditMode(i)">{{ oneEmployeeSkill.TechnicalCategory }}</td>
+            <td *ngIf="isEditMode(i)">{{ oneEmployeeSkill.skillName }}</td>
+            <td>
+              <select id="skillTypeId{{i}}" name="skillTypeId{{i}}" class="form-control"
+                (change)="editedSkillType($event,i)">
+                <option value="" selected disabled>{{ oneEmployeeSkill.skillTypeId }}</option>
+                <option *ngFor="let s of skillTypes1">
+                  {{s.referenceDetailValue}}
+                </option>
+              </select>
+            </td>
+
+            <td>
+              <select id="competencyLevelId{{i}}" name="competencyLevelId{{i}}" class="form-control"
+                (change)="editedCompetency($event,i)">
+                <option value="" selected disabled>{{ oneEmployeeSkill.competencyLevelId }}</option>
+                <option *ngFor="let c of skillCompetencies1">
+                  {{c.referenceDetailValue}}
+                </option>
+              </select>
+            </td>
+
+            <td>
+              <select id="certification{{i}}" name="certification{{i}}" class="form-control"
+                (change)="editedCertifcation($event,i)">
+                <option value="" selected disabled>{{ oneEmployeeSkill.certification }}</option>
+                <option>Yes</option>
+                <option>No</option>
+              </select>
+            </td>
+
+            <td>
+              <input class="form-control no-truncate" value="{{ oneEmployeeSkill.description }}" id="description"
+                (change)="editedDescription($event, i)" />
+            </td>
+
+            <td>
+              <input class="form-control" value="{{ oneEmployeeSkill.comments }}" (change)="editedComments($event,i)" />
+            </td>
+
+            <td>
+              <input   type="number" min=0 class="form-control" value="{{ oneEmployeeSkill.yearsOfExp }}"
+                (change)="editedYearOfExp($event,i)"  (input)="checkExp($event)"/>
+                <div *ngIf="expnegative" class="text-danger">
+                  not valid
+                 </div>
+            </td>
+
+          </ng-template>
+          <td>
+            <button type="button" class="btn btn btn-sm" (click)="saveRowChanges()" (click)="onEditMode(i)">
+              <i [ngClass]="isEditMode(i) ? 'bi bi-check-circle-fill green-icon' : 'fa-regular fa-pen-to-square'"></i>
+            </button>
+
+            <button class="btn btn remove-button btn-sm" id="deletebtn">
+              <i class="fa-solid fa-trash " (click)="openConfirmationDialog(i)"></i>
+            </button>
+          </td>
+        </tr>
+
+
+        <tr *ngFor="let newRow of newRows; let i = index">
+          <td>
+            <select class="form-control" (change)="onSelectSkillCategory($event,i)" id="SkillCategory{{i}}"
+              name="SkillCategory{{i}}" [(ngModel)]="newRow.skillCategory" #skillCategorySelect="ngModel" required>
+              <option value="" selected disabled>Select SkillCategory</option>
+              <option *ngFor="let s of skillCategories">{{ s.referenceDetailValue }}</option>
+            </select>
+            <div *ngIf="skillCategorySelect.invalid && (skillCategorySelect.dirty || skillCategorySelect.touched)"
+              class="text-danger" style="font-size: 12px;">
+              Required field
+            </div>
+          </td>
+
+          <td>
+            <select class="form-control" (change)="onSelectTechnicalCategory($event, i)" id="TechnicalCategory{{i}}"
+              name="TechnicalCategory{{i}}" [(ngModel)]="newRow.technicalCategory" #TechnicalCategorySelect="ngModel"
+              required>
+              <option value="" selected disabled>Select Sub SkillCategory</option>
+              <option value="{{t.referenceDetailId}}" *ngFor="let t of technicalcategories[i]">
+                {{t.referenceDetailValue}}
+              </option>
+            </select>
+            <div
+              *ngIf="TechnicalCategorySelect.invalid && (TechnicalCategorySelect.dirty || TechnicalCategorySelect.touched)"
+              class="text-danger">
+              Required field
+            </div>
+          </td>
+
+          <td>
+            <select class="form-control" id="SkillName{{i}}" name="SkillName{{i}}" [(ngModel)]="newRow.skillId"
+              (change)="onSelectSkillName($event,i)" #SkillNameSelect="ngModel" required
+              (click)="isTechnicalCategoryDisabledm(i)">
+              <option value="" selected disabled>Select SkillName</option>
+              <option *ngFor="let s of skills[i]" [value]="s.skillId" [disabled]="isTechnicalCategoryDisabled">
+                {{s.skillName}}
+              </option>
+            </select>
+            <div *ngIf="SkillNameSelect.invalid && (SkillNameSelect.dirty || SkillNameSelect.touched)"
+              class="text-danger">
+              Required field
+            </div>
+            <div *ngIf="isTechnicalCategoryDisabled" class="text-danger">
+              no skills available
+            </div>
+          </td>
+
+          <td>
+            <select class="form-control" style="font-size: 12px;" [(ngModel)]="newRow.skillTypeId"
+              #SkillTypeSelect="ngModel" required>
+              <option value="" selected disabled>Select SkillType</option>
+              <option *ngFor="let st of skillTypes" value="{{st.referenceDetailId}}">
+                {{st.referenceDetailValue}}
+              </option>
+            </select>
+            <div *ngIf="SkillTypeSelect.invalid && (SkillTypeSelect.dirty || SkillTypeSelect.touched)"
+              class="text-danger">
+              Required field
+            </div>
+          </td>
+
+          <td>
+            <select class="form-control" [(ngModel)]="newRow.competencyLevelId" #SkillCompetencySelect="ngModel"
+              required>
+              <option value="" selected disabled>Select SkillCompetency</option>
+              <option *ngFor="let sc of skillCompetencies" value="{{sc.referenceDetailId}}">
+                {{sc.referenceDetailValue}}
+              </option>
+            </select>
+            <div *ngIf="SkillCompetencySelect.invalid && (SkillCompetencySelect.dirty || SkillCompetencySelect.touched)"
+              class="text-danger">
+              Required field
+            </div>
+          </td>
+
+          <td>
+            <select class="form-control" [(ngModel)]="newRow.certification" #SkillCertificationSelect="ngModel"
+              required>
+              <option value="" selected disabled>Select Certification</option>
+              <option value="Yes">Yes</option>
+              <option value="No">No</option>
+            </select>
+            <div
+              *ngIf="SkillCertificationSelect.invalid && (SkillCertificationSelect.dirty || SkillCertificationSelect.touched)"
+              class="text-danger">
+              Required field
+            </div>
+          </td>
+
+          <td>
+            <input class="form-control" [(ngModel)]="newRow.description" />
+          </td>
+
+          <td>
+            <input class="form-control" [(ngModel)]="newRow.comments" />
+          </td>
+
+          <td>
+            <input type="number"  min=0  class="form-control" [(ngModel)]="newRow.yearsOfExp" />
+            <div *ngIf="newRow.yearsOfExp<0" class="text-danger">
+             not valid
+            </div>
+          </td>
+
+          <td>
+            <button class="btn btn remove-button btn-sm">
+              <i class="fa-solid fa-trash " id="trashbtn" (click)="openConfirmationDialogAdded(i)"></i>
+            </button>
+          </td>
+        </tr>
+      </tbody>
+
+      <div class="row justify-content-end mt-2" *ngIf="!isEditModeActive">
+        <div>
+          <button type="submit" class="btn btn-primary float-lg-end" id="submitButton"
+            (click)="saveExtraAddedRows(newRows)" id="btnsubmit">
+            Save
+          </button>
+        </div>
+      </div>
+    </table>
+  </div>
+</div>
+<div>
+  <router-outlet></router-outlet>
+</div>
+<div id="buffer" class="spinner-border" role="status" *ngIf="isLoading">
+  <span class="visually-hidden">Loading....</span>
+</div>

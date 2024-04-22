@@ -1,0 +1,170 @@
+
+<div class="card">
+
+    <h1 class="mb-3 employecolor" style="font-size: 1.5empx; font-family: Arial, Helvetica, sans-serif;">
+        Add Account</h1>
+    <form class="formborderbox round round-3 p-4 mt-3" (submit)="sendAccount()" #accountForm="ngForm">
+        <div class="row">
+            <div class="col-md-4 mb-3">
+                <label for="accountName" class="form-label"> Name:</label>
+                <input type="text" class="form-control" id="accountName" placeholder="Enter your accountName" [(ngModel)]="acc.accountName" name="accountName" required>
+                <div *ngIf="accountForm.controls['accountName'].invalid && (accountForm.controls['accountName'].dirty || accountForm.controls['accountName'].touched)" class="text-danger">
+                    Name is required.
+                </div>
+            </div>
+
+            <div class="col-md-4 mb-3">
+                <label for="ownerId" class="form-label">Owner Name:</label>
+                <select class="form-select" id="ownerId" [(ngModel)]="acc.ownerId" name="ownerId" required>
+                    <option value="" disabled selected>Select owner</option>
+                    <option *ngFor="let employee of owenrId" [ngValue]="employee.employeeId">{{employee.firstName}} {{employee.lastname}}</option>
+                </select>
+                <div *ngIf="accountForm.controls['ownerId'].invalid && (accountForm.controls['ownerId'].dirty || accountForm.controls['ownerId'].touched)" class="text-danger">
+                    Owner Name is required.
+                </div>
+            </div>
+
+            <div class="col-md-4 mb-3">
+                <label for="relationshipManagerId" class="form-label">Relationship Manager Name:</label>
+                <select class="form-select" id="relationshipManagerId" [(ngModel)]="acc.relationshipManagerId" name="relationshipManagerId" required>
+                    <option value="" disabled selected>Select relationship manager</option>
+                    <option *ngFor="let employee of owenrId" [ngValue]="employee.employeeId">{{employee.firstName}} {{employee.lastname}}</option>
+                </select>
+                <div *ngIf="accountForm.controls['relationshipManagerId'].invalid && (accountForm.controls['relationshipManagerId'].dirty || accountForm.controls['relationshipManagerId'].touched)" class="text-danger">
+                    Relationship Manager Name is required.
+                </div>
+            </div>
+
+            <div class="col-md-4 mb-3">
+                <label for="businessDevelopmentManagerId" class="form-label">Business Development Manager Name:</label>
+                <select class="form-select" id="businessDevelopmentManagerId" [(ngModel)]="acc.businessDevelopmentManagerId" name="businessDevelopmentManagerId" required>
+                    <option value="" disabled selected>Select business development manager</option>
+                    <option *ngFor="let employee of owenrId" [ngValue]="employee.employeeId">{{employee.firstName}} {{employee.lastname}}</option>
+                </select>
+                <div *ngIf="accountForm.controls['businessDevelopmentManagerId'].invalid && (accountForm.controls['businessDevelopmentManagerId'].dirty || accountForm.controls['businessDevelopmentManagerId'].touched)" class="text-danger">
+                    Business Development Manager Name is required.
+                </div>
+            </div>
+
+            <div class="col-md-4 mb-3">
+                <label for="parentAccountId" class="form-label"> Parent Account Id:</label>
+                <select class="form-select" id="parentAccountId" placeholder="Enter Parent Account Id" [(ngModel)]="acc.parentAccountId" name="parentAccountId" required>
+                    <option value="" disabled selected>Select parent account</option>
+                    <option *ngFor="let account1 of account1" [ngValue]="account1.accountId">{{account1.accountName}}</option>
+                </select>
+                <div *ngIf="accountForm.controls['parentAccountId'].invalid && (accountForm.controls['parentAccountId'].dirty || accountForm.controls['parentAccountId'].touched)" class="text-danger">
+                    Parent Account Id is required.
+                </div>
+            </div>
+
+            <div class="col-md-4 mb-3">
+                <label for="accountBuId" class="form-label"> BU Name:</label>
+                <select class="form-select" id="accountBuId" placeholder="Enter Account BuId" [(ngModel)]="acc.accountBuId" name="accountBuId" required>
+                    <option value="" disabled selected>Select BU</option>
+                    <option *ngFor="let BU of businessUnitType" [ngValue]="BU.referenceDetailId">{{ BU.referenceDetailValue}}</option>
+                </select>
+                <div *ngIf="accountForm.controls['accountBuId'].invalid && (accountForm.controls['accountBuId'].dirty || accountForm.controls['accountBuId'].touched)" class="text-danger">
+                    BU Name is required.
+                </div>
+            </div>
+
+            <div class="col-md-4 mb-3">
+                <label for="plannedStartDate" class="form-label">Planned Start Date:</label>
+                <input type="date" class="form-control" id="plannedStartDate" [(ngModel)]="acc.plannedStartDate" name="plannedStartDate" required>
+                <div *ngIf="accountForm.controls['plannedStartDate'].invalid && (accountForm.controls['plannedStartDate'].dirty || accountForm.controls['plannedStartDate'].touched)" class="text-danger">
+                    Planned Start Date is required.
+                </div>
+            </div>
+
+            <div class="col-md-4 mb-3">
+                <label for="plannedEndDate" class="form-label">Planned End Date:</label>
+                <input type="date" class="form-control" id="plannedEndDate" [(ngModel)]="acc.plannedEndDate" name="plannedEndDate" required>
+                <div *ngIf="accountForm.controls['plannedEndDate'].invalid && (accountForm.controls['plannedEndDate'].dirty || accountForm.controls['plannedEndDate'].touched)" class="text-danger">
+                    Planned End Date is required.
+                </div>
+            </div>
+
+            <div class="col-md-4 mb-3">
+                <label for="actualStartDate" class="form-label">Actual Start Date:</label>
+                <input type="date" class="form-control" id="actualStartDate" [(ngModel)]="acc.actualStartDate" name="actualStartDate" required>
+                <div *ngIf="accountForm.controls['actualStartDate'].invalid && (accountForm.controls['actualStartDate'].dirty || accountForm.controls['actualStartDate'].touched)" class="text-danger">
+                    Actual Start Date is required.
+                </div>
+            </div>
+
+            <div class="col-md-4 mb-3">
+                <label for="actualEndDate" class="form-label">Actual End Date:</label>
+                <input type="date" class="form-control" id="actualEndDate" [(ngModel)]="acc.actualEndDate" name="actualEndDate" required>
+                <div *ngIf="accountForm.controls['actualEndDate'].invalid && (accountForm.controls['actualEndDate'].dirty || accountForm.controls['actualEndDate'].touched)" class="text-danger">
+                    Actual End Date is required.
+                </div>
+            </div>
+
+            <div class="col-md-4 mb-3">
+                <label for="address" class="form-label">Address:</label>
+                <input type="text" class="form-control" id="address" [(ngModel)]="acc.address" name="address" required>
+                <div *ngIf="accountForm.controls['address'].invalid && (accountForm.controls['address'].dirty || accountForm.controls['address'].touched)" class="text-danger">
+                    Address is required.
+                </div>
+            </div>
+
+            <div class="col-md-4 mb-3">
+                <label for="city" class="form-label"> City:</label>
+                <input type="text" class="form-control" id="city" [(ngModel)]="acc.city" name="city" required>
+                <div *ngIf="accountForm.controls['city'].invalid && (accountForm.controls['city'].dirty || accountForm.controls['city'].touched)" class="text-danger">
+                    City is required.
+                </div>
+            </div>
+
+            <div class="col-md-4 mb-3">
+                <label for="state" class="form-label">State:</label>
+                <input type="text" class="form-control" id="state" [(ngModel)]="acc.state" name="state" required>
+                <div *ngIf="accountForm.controls['state'].invalid && (accountForm.controls['state'].dirty || accountForm.controls['state'].touched)" class="text-danger">
+                    State is required.
+                </div>
+            </div>
+
+            <div class="col-md-4 mb-3">
+                <label for="zipcode" class="form-label"> Zipcode:</label>
+                <input type="text" class="form-control" id="zipcode" [(ngModel)]="acc.zipcode" name="zipcode" required>
+                <div *ngIf="accountForm.controls['zipcode'].invalid && (accountForm.controls['zipcode'].dirty || accountForm.controls['zipcode'].touched)" class="text-danger">
+                    Zipcode is required.
+                </div>
+            </div>
+
+            <div class="col-md-4 mb-3">
+                <label for="country" class="form-label">Country:</label>
+                <input type="text" class="form-control" id="country" [(ngModel)]="acc.country" name="country" required>
+                <div *ngIf="accountForm.controls['country'].invalid && (accountForm.controls['country'].dirty || accountForm.controls['country'].touched)" class="text-danger">
+                    Country is required.
+                </div>
+            </div>
+
+            <div class="col-md-4 mb-3">
+                <label for="accountStatus" class="form-label"> Status:</label>
+                <select class="form-select" id="accountStatus" placeholder="Enter status" [(ngModel)]="acc.accountStatus" name="accountStatus" required>
+                    <option value="" disabled selected>Select status</option>
+                    <option *ngFor="let status1 of statusTypes" [ngValue]="status1.referenceDetailId">{{ status1.referenceDetailValue}}</option>
+                </select>
+                <div *ngIf="accountForm.controls['accountStatus'].invalid && (accountForm.controls['accountStatus'].dirty || accountForm.controls['accountStatus'].touched)" class="text-danger">
+                    Status is required.
+                </div>
+            </div>
+
+            <div class="col-md-4 mb-3">
+                <label for="comments" class="form-label">Comment:</label>
+                <input type="text" class="form-control" id="comments" [(ngModel)]="acc.comments" name="comments" required>
+                <div *ngIf="accountForm.controls['comments'].invalid && (accountForm.controls['comments'].dirty || accountForm.controls['comments'].touched)" class="text-danger">
+                    Comment is required.
+                </div>
+            </div>
+        </div>
+
+        <div class=" row button">
+            <button type="submit" class="btn btnbg" [disabled]="accountForm.invalid" >Submit</button>
+            <button type="submit" class="btn btnbg back" routerLink="/admin/account-display">Back</button>
+        </div>
+
+    </form>
+
+</div>

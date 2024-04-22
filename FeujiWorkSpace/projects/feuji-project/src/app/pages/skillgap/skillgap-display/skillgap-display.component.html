@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+
+<body>
+  <div class="container">
+    <div class="selectbtns">
+      <select id="SkillCategory" name="SkillCategory" class="form-control" (change)="onSelectskillCat($event)"
+        (click)="changeBorderStyle()" aria-label="Default select example"
+        [ngClass]="{'selected-border': isBorderBlue2}">
+        >
+        <option value="" selected disabled>Select SkillCategory</option>
+        <option *ngFor="let s of skillCategories" value="{{s.referenceDetailValue}}">
+          {{s.referenceDetailValue}}
+        </option>
+      </select>
+
+      <select id="TechnicalCategory" name="TechnicalCategory" class="form-control" (change)="onSelectTechCat($event)"
+        (click)="changeBorderStyle2()" aria-label="Default select example"
+        [ngClass]="{'selected-border': isBorderBlue2}">
+        <option value="" selected disabled>Select SubSkillCategory</option>
+        <option *ngFor="let t of technicalCategories" [value]="t.referenceDetailId + ',' + t.referenceDetailValue">
+          {{t.referenceDetailValue}}
+        </option>
+      </select>
+
+
+      <select (click)="changeBorderStyle3()" aria-label="Default select example"
+        [ngClass]="{'selected-border': isBorderBlue3}" (change)="onSelectRole($event)">
+        <option value="" selected disabled>Select Role</option>
+        <option value="{{item}}" *ngFor="let item of uniqueRoleNames">{{item}}</option>
+
+      </select>
+      <button id="searchbtn" class="btn btn-outline-primary" (click)="onsearch()">Search</button>
+    </div>
+
+    <div class="display" *ngIf="skillNames.length>0">
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th colspan="5" id="headerDetails">
+          <tr>
+            <th id="text">
+              <div class="th-container">
+                <span>Skill Category</span>
+                <span>:</span>
+              </div>
+            </th>
+            <th class="th1">{{selectedSkillCate}}</th>
+          </tr>
+          <tr>
+            <th>
+              <div class="th-container">
+                <span>Skill Set</span>
+                <span>:</span>
+              </div>
+            </th>
+            <th class="th1">{{selectedTechnicalCate}}</th>
+          </tr>
+          <tr>
+            <th>
+              <div class="th-container">
+                <span>Role</span>
+                <span>:</span>
+              </div>
+            </th>
+            <th class="th1">{{selectedRoleName}}</th>
+          </tr>
+          </th>
+          <th *ngFor="let id of skillNames" class="skillNamesdisplay">
+            {{ id }}
+          </th>
+          </tr>
+          <tr>
+            <th>Sno</th>
+            <th>Employee Name</th>
+            <th>Employee Code</th>
+            <th>Designation</th>
+            <th>Email</th>
+            <th *ngFor="let id of skillType" id="displaytype">{{id.skillType}}</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let e of empSkills; let i= index">
+            <td>{{(i+1)+(page*size)}}</td>
+            <td>{{ e.employeeName }}</td>
+            <td>{{ e.employeeCode }}</td>
+            <td>{{ e.designition }}</td>
+            <td>{{ e.email }}</td>
+            <td *ngFor="let name of skillNames">
+              <ng-container *ngFor="let skills of e.skillLists">
+                <ng-container *ngIf="skills.skillName === name">
+                  <img [src]="generateResult(skills.expectedCompetency,skills.actualCompetency)" alt="text"
+                    [title]="getCompetencyText(skills)">
+                </ng-container>
+              </ng-container>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+
+      <div class="pagenationBtns">
+        <div class="itemsdiv">
+          <span>Items per page:</span>
+        </div>
+        <div class="noOfPages">
+          <select class="form-select" aria-label="Disabled select example" (change)="onSelectPageSize($event)">
+            <option value="5">5</option>
+            <option value="10">10</option>
+            <option value="15">15</option>
+            <option value="20">20</option>
+            <option value="50">50</option>
+            <option value="100">100</option>
+          </select>
+        </div>
+        <div>
+          <span> {{1+(page*size)}}-{{(page+1)*size}} of {{totalRecords}}</span>
+        </div>
+        <div class="prevNext">
+          <nav aria-label="...">
+            <ul class="pagination justify-content-end">
+              <li class="page-item" [ngClass]="first?' disabled':''">
+                <a class="page-link" (click)="onFirst()" aria-label="First">
+                  <i class="bi bi-chevron-double-left"></i>
+                </a>
+              </li>
+              <li class="page-item" [ngClass]="first?' disabled':''">
+                <a class="page-link" (click)="onPrevious()" aria-label="Previous">
+                  <i class="bi bi-chevron-left"></i>
+                </a>
+              </li>
+              <li class="page-item" [ngClass]="last?' disabled':''">
+                <a class="page-link" (click)="onNext()" aria-label="Next">
+                  <i class="bi bi-chevron-right"></i>
+                </a>
+              </li>
+              <li class="page-item" [ngClass]="last?' disabled':''">
+                <a class="page-link" (click)="onLast()" aria-label="Last">
+                  <i class="bi bi-chevron-double-right"></i>
+                </a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</body>
+
+</html>

@@ -1,0 +1,35 @@
+#container{
+  width:100%;
+  background-color: #ecf0f4;
+  position: relative;
+  /* left: 3%; */
+  border-radius: 3%;
+ display: flex;
+ flex-direction: row;
+ top:2%;
+}
+
+#image{
+  margin-left: 2%;
+  width:25%;
+  height: 50%;
+}
+#text{
+  margin-left: 3%;
+  font-size: 3rem;
+  color: #555;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+}
+#name{
+  margin-top: 9%;
+  color: #2196f3 !important
+}
+#description{
+  margin-top: 2%;
+  color: #222121;
+  font-size: 1.2rem;
+  line-height: 1.8rem;
+
+}

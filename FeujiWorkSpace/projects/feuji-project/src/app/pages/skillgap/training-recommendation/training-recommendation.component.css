@@ -1,0 +1,127 @@
+mat-card {
+  background-color: #ecf0f4;
+  margin-top: 2%;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  display: flex;
+}
+
+mat-tab {
+  color: black;
+}
+
+#recommend-training {
+  width: 32%;
+  background-color: rgb(255, 252, 252);
+  box-shadow: 1px 1px 5px black;
+  margin-top: 2%;
+  border-radius: 10%;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-left: 1%;
+  margin-bottom: 1%;
+}
+
+#container {
+  display: flex;
+  flex-direction: column;
+  align-items:baseline;
+
+}
+#firstDiv{
+  align-items:center;
+  display: flex;
+  margin-top: 2%;
+}
+.secondDiv{
+  align-items:center;
+  justify-content:space-between;
+  display: flex;
+  margin-top: 2%;
+
+}
+.circle {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  border: 3px solid black;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#image {
+  width: 20px;
+  height: 20px;
+}
+
+.highSkillText {
+  color: #de2222;
+  font-size: 0.5rem;
+  font-weight: 400;
+}
+
+#moderateSkillText {
+  color: #f08f45;
+  font-size: 0.5rem;
+  font-weight: 400;
+}
+
+#heading {
+  color: #5b626b;
+  font-size: 25px;
+  line-height: 28px;
+  font-weight: 500;
+  padding-left: 5%;
+  padding-top: 2%;
+}
+
+.eachSkill {
+  width: 280px;
+  background-image: linear-gradient(to right, #c7c7f6, #8181f8);
+  color: #212122;
+  padding: 5px 10px;
+  border-radius: 15px;
+  margin-left: 2%;
+  list-style-type: none;
+
+}
+
+.skillname {
+  font-size: 20px;
+  font-weight: 500;
+  margin-right: 3rem;
+  padding-top: 2%;
+  text-wrap: wrap;
+  white-space: pre-line;
+
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  margin-top: 2%;
+  padding-left: 4%;
+}
+
+#section1 {
+  display: flex;
+  flex-wrap:wrap;
+}
+
+#section2 {
+  display: flex;
+  flex-wrap:wrap;
+}
+.message{
+  width:100%;
+  padding-top: 3%;
+  color: #60609f;
+  text-align: center;
+}
+span{
+ color:black;
+}

@@ -1,0 +1,57 @@
+.input-group-append{
+  justify-content: space-evenly;
+}
+.table tr th{
+  text-align:center;
+  font-size: 15px;
+  background-color: rgb(229, 233, 234);
+  color: black;
+  position: sticky;
+}
+
+.table{
+  width: 95%;
+  margin-left: 4%;
+}
+
+button {
+  padding: 8px 15px;
+  /* background-color: #007bff; */
+  background-color: rgb(164, 164, 236);
+  color:black;
+  width: 50px;
+  border: none;
+  border-radius: 60px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+.tbody tr td{
+text-align: center;
+}
+.Inactive {
+  color: rgb(240, 85, 85);
+  /* color: black; */
+  border-radius: 50px;
+  margin: 0px auto;
+  width: 100px;
+  align-items: center;
+  font-weight: 900;
+}
+
+.Active {
+color: rgb(121, 197, 121);
+  /* color: black; */
+  border-radius: 10px;
+  margin: 0px auto;
+  width: 100px;
+  align-items: center;
+  font-weight: 900;
+}
+
+.rowbutton{
+display: flex;
+justify-content: space-evenly;
+}

@@ -1,0 +1,195 @@
+<div class="container mt-2">
+  <div class="row p-4 text-end">
+    <div class="d-flex justify-content-end">
+      <div class="col-md-2 mb-3 me-3"></div>
+      <div class="col-md-2 mb-3 me-3">
+        <h1></h1>
+      </div>
+    </div>
+
+    <table class="table table-borderedless mt-2">
+      <thead class="table-borderless">
+        <tr class="table-head">
+          <th colspan="14">
+            <div class="mt-3 d-flex">
+              <div class="col-md-4 d-flex justify-content-between" style="margin-left: 2%;">
+                <!-- <select id="account" (change)="OnSelectAccount($event)" (change)="loadTimesheetData()" id="sel-drop-account">
+                  <option value="" selected disabled>Select account</option>
+                  <option *ngFor="let acc of accounts" value="{{ acc.accountId }}">{{ acc.accountName }}</option>
+                </select> -->
+                
+                <select id="account" (change)="OnSelectAccount($event)" (change)="loadTimesheetData()" id="sel-drop-account" required>
+                  <option value="" selected disabled>Select account</option>
+                  <option *ngFor="let acc of accounts" value="{{ acc.accountId }}">{{ acc.accountName }}</option>
+                </select>
+               
+              
+                <button class="btn btn-outline-primary" style="margin-right: 5px; margin-left: 5px" (click)="showPreviousWeek()">
+                  <i class="fa-solid fa-angle-left"></i>
+                </button>
+                <button class="btn btn-outline-primary" style="margin-right: 5px;" (click)="calculateCurrentWeek()">Current</button>
+
+                <button class="btn btn-outline-primary" id="nextbottonId" (click)="showNextWeek()">
+                  <i class="fa-solid fa-angle-right"></i>
+                </button>
+              </div>
+              <div class="col-md-7 d-flex justify-content-around">
+                <h6>{{ startDate }} To {{ lastDate }}</h6>
+                
+                  <p class="custom-p">Timesheet-Status :
+                
+                  <span class="value  {{ fetchedDetails[0]?.timesheetStatusname }}">{{ fetchedDetails[0]?.timesheetStatusname }}</span>
+                </p>
+              </div>
+              <div class="col-md-1 d-flex " >
+               
+                <button [disabled]="!addbutton" class="btn float-lg-end" (click)="addTaskRow(); disableInputField()" style="border-radius: 50%; background-color: rgb(164, 164, 236); border-color: rgb(164, 164, 236);">
+                  <i class="fa-solid fa-plus"></i>
+                </button>
+              </div>
+            </div>
+          </th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr class="row1" style="text-align: center">
+          <th class="table-head">Project</th>
+          <th class="table-head">TaskType</th>
+          <th class="table-head">Task</th>
+          <th class="table-head">Atendance Type</th>
+          <th class="table-head" *ngFor="let day of currentWeek" >{{ day.startDate }}</th>
+          <th class="table-head">Total</th>
+          <th class="table-head">Action</th>
+        </tr>
+        <tr *ngFor="let details of fetchedDetails; let j = index">
+          <td class="text-center">{{ details.projectName }}</td>
+          <td class="text-center">{{ details.taskTypeName }}</td>
+          <td class="text-center">{{ details.taskName }}</td>
+          <td class="text-center">{{ details.attendanceTypeName }}</td>
+
+          <td class="text-center" id="data_{{ j }}4">
+            <input class="form-control" id="tddata_{{ j }}4" [value]="details.hoursMon" (click)="onEditMode(j, details)" (change)="geteditedHoursMon($event, j)" style="width: 65px; text-align: center" />
+          </td>
+
+          <td class="text-center" id="data_{{ j }}5">
+            <input class="form-control" id="tddata_{{ j }}5" [value]="details.hoursTue" (click)="onEditMode(j, details)" (change)="geteditedHoursTue($event, j)" style="width: 65px; text-align: center" />
+          </td>
+          <td class="text-center" id="data_{{ j }}6">
+            <input class="form-control" id="tddata_{{ j }}6" [value]="details.hoursWed" (click)="onEditMode(j, details)" (change)="geteditedHoursWed($event, j)" style="width: 65px; text-align: center" />
+          </td>
+          <td class="text-center" id="data_{{ j }}7">
+            <input class="form-control" id="tddata_{{ j }}7" [value]="details.hoursThu" (click)="onEditMode(j, details)" (change)="geteditedHoursThu($event, j)" style="width: 65px; text-align: center" />
+          </td>
+          <td class="text-center" id="data_{{ j }}8">
+            <input class="form-control" id="tddata_{{ j }}8" [value]="details.hoursFri" (click)="onEditMode(j, details)" (change)="geteditedHoursFri($event, j)" style="width: 65px; text-align: center" />
+          </td>
+          <td class="text-center" id="data_{{ j }}9">
+            <input class="form-control" id="tddata_{{ j }}8" [value]="details.hoursSat" readonly style="width: 65px" />
+          </td>
+          <td class="text-center" id="data_{{ j }}10">
+            <input class="form-control" id="tddata_{{ j }}10" [value]="details.hoursSun" readonly style="width: 65px" />
+          </td>
+          <td class="text-center" id="data_{{ j }}11">{{ newrowTotal[j] }}</td>
+
+          <td>
+            <button class="btn btn remove-button btn-sm" [disabled]="!addbutton">
+              <i class="fa-solid fa-trash" style="color: red" (click)="deleteselected(j)"></i>
+            </button>
+          </td>
+        </tr>
+
+
+        <!-- <ng-container *ngIf="showRows"> -->
+          <tr *ngFor="let task of tasks; let i = index">
+            <td>
+              <span style=color:red>*</span>
+              <select #projectSelect="ngModel"  id="project_{{ i }}"  name="project_{{ i }}" class="sel-drop" (change)="onSelect($event, i)" [(ngModel)]="task.project">
+                <option value="" selected disabled>Select project</option>
+                <option *ngFor="let pro of projects" value="{{ pro.accountProjectId }}">{{pro.projectName}}</option>
+              </select>
+              <div *ngIf="!selectedAccount && projectSelect.touched"  class="text-danger">select account</div>
+            </td>
+            <td>
+              <span style=color:red>*</span>
+              <select #taskselected="ngModel" id="tasktype_{{ i }}" name="tasktype_{{ i }}" class="sel-drop" (change)="onSelectTaskType($event, i)" [(ngModel)]="task.taskType">
+                <option value="" selected disabled>Select Type</option> 
+                <option *ngFor="let tasktype of projectTaskType[i]" value="{{ tasktype.taskTypeId }}">{{tasktype.taskType}}</option>
+              </select>
+              <div *ngIf="!selectedProjectId && taskselected.touched"  class="text-danger">select project</div>
+            </td>
+            <td>
+              <span style=color:red>*</span>
+              <select  #tasktypeselected="ngModel" class="sel-drop" [(ngModel)]="task.task" id="task_{{ i }}"  name="task_{{ i }}" (change)="onSelectingTask($event, i)">
+                <option value="" selected disabled>Select Task</option>
+                <option *ngFor="let task of projectTask[i]" value="{{ task.taskId }}">{{task.task}}</option>
+              </select>
+              <div *ngIf="!selectedProjecttaskId &&  tasktypeselected.touched"  class="text-danger">select TaskType</div>
+              </td>
+              <td>
+                <span style=color:red>*</span>
+              <select class="sel-drop" [(ngModel)]="task.attendanceType" id="attendance_{{ i }}" (change)="onselectAttendanceType($event, i)">
+                <option value="" selected disabled>Attendance Type</option>
+                <option *ngFor="let bil of attendanceTypeArr" value="{{ bil.referenceDetailId }}">{{bil.referenceDetailValue}}</option>
+              </select>
+              </td>
+              <td>
+              <input class="form-control" id="input_{{ i }}0" value="0" (change)="sumofields()" />
+              <td>
+              <input class="form-control" id="input_{{ i }}1" value="0" (change)="sumofields()"/>
+              </td>
+
+              <td>
+              <input class="form-control" id="input_{{ i }}2" value="0" (change)="sumofields()"/>
+              </td>
+              <td>
+              <input class="form-control" id="input_{{ i }}3" value="0" (change)="sumofields()"  />
+              </td>
+              <td>
+              <input class="form-control" id="input_{{ i }}4" value="0" (change)="sumofields()" />
+              </td>
+              <td>
+              <input class="form-control" id="input_{{ i }}5" value="0" readonly (change)="sumofields()" />
+              </td>
+              <td>
+              <input class="form-control" id="input_{{ i }}6" value="0" readonly (change)="sumofields()" />
+              </td>
+              <td>
+              <input class="form-control" id="input_{{ i }}7" value="0" readonly (change)="sumofields()"  />
+              </td>
+
+              <td>
+              <i class="fa-solid fa-trash-can fa-fw" style="color: red" (click)="removeTask(i)"></i>
+              </td>
+              </tr>
+              <!-- </ng-container> -->
+              </tbody>
+              <tfoot>
+              <tr>
+              <td colspan="4" >Total</td>
+              <td *ngFor="let total of totalvalue; let j = index">
+              {{ totalvalue[j] }}
+              </td>
+              <td></td>
+              <td></td>
+              </tr>
+              </tfoot>
+              </table>
+              </div>
+              <div class="row mt-4" style="display: flex; width: auto">
+              <div class="col-md-9">
+              <textarea id="comments" (change)="getComment($event)" placeholder="Comment" ></textarea>
+              </div>
+
+              <div class="col-md-3 text-end">
+              <button [disabled]="!saveAndSubmit" type="button" class="btn btn-primary" (click)="saveWeekTableData()" style="font-size: medium; background-color: rgb(164, 164, 236); border-color: rgb(164, 164, 236); margin-right: 10px;">
+              Save
+              </button>
+              <button type="submit" [disabled]="!Submit" class="btn btn-primary me-3" (click)="onSubmit()" style="font-size: medium; background-color: rgb(164, 164, 236); border-color: rgb(164, 164, 236);">
+
+              Submit
+              </button>
+              </div>
+              </div>
+              </div>
+

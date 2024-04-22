@@ -1,0 +1,11 @@
+.mat-dialog-actions {
+  border: 1px solid red;
+  display: flex;
+  justify-content: center;
+  background-color: blue;
+}
+
+.mat-dialog-actions button {
+  margin: 0 10px;
+  color: white;
+}

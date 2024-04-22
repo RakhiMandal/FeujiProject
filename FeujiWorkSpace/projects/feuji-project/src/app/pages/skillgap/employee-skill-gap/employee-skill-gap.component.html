@@ -1,0 +1,65 @@
+<div class="container">
+  <div>
+    <select id="SkillCategory" name="SkillCategory" class="form-control" (change)="onSelectskillCat($event)"
+      (click)="changeBorderStyle()" aria-label="Default select example" [ngClass]="{'selected-border': isBorderBlue}">
+      >
+      <option value="" selected disabled>Select SkillCategory</option>
+      <option *ngFor="let s of skillCategories" [value]="s.referenceDetailId">
+        {{s.referenceDetailValue}}
+      </option>
+      <option value="allCategories" >All skill Categories</option>
+    </select>
+  </div>
+  <div id="downloadbtn">
+    <button *ngIf="getMySkills.length>0" id="down" (click)="downloadData()"><i class="fas fa-download"></i></button>
+  </div>
+</div>
+<div id="display">
+  <div id="details" *ngIf="getMySkills.length>0">
+    <p id="ptag"><b>Employee Details</b></p>
+    <p><b>Employee Name : </b>{{ getMySkills[0]?.employeeName }}</p>
+    <p><b>Employee Email : </b>{{ getMySkills[0]?.email }}</p>
+    <p><b>Employee Designation : </b> {{ getMySkills[0]?.designation }}</p>
+  </div>
+  <div>
+    <section *ngIf="getMySkills.length >0">
+      <div><img src="../assets/img/expert.png"> More than expected</div>
+      <div><img src="../assets/img/noGap.png"> No Gap</div>
+      <div><img src="../assets/img/lowgap.png"> Low Gap</div>
+      <div><img src="../assets/img/lessSkill.png"> High Gap</div>
+      <div><img src="../assets/img/noskill.png"> Skill not required</div>
+
+    </section>
+  </div>
+</div>
+
+<section class="mt-">
+  <div class="row p-4">
+    <table class="table" *ngIf="getMySkills.length>0">
+      <thead>
+        <tr>
+          <th>Skill Name</th>
+          <th>Expected Level</th>
+          <th>Actual Level</th>
+          <th>Description</th>
+          <th>Results</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let skill of getMySkills">
+          <td class="wraptext">{{ skill.skillName }}</td>
+          <td>{{ skill.exReferenceDetailsValues }}</td>
+          <td>{{ skill.acReferenceDetailsValues }}</td>
+          <td class="wraptext">{{skill.description}}</td>
+
+          <td>
+            <img [src]="generateResult(skill.exReferenceDetailsValues, skill.acReferenceDetailsValues)" alt="text"
+              [title]="'Expected: ' + skill.exReferenceDetailsValues + '&#10;Actual: ' + skill.acReferenceDetailsValues">
+
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+</section>

@@ -1,0 +1,81 @@
+<div class="container-fluid mt-4">
+    <h1 class="text-center mb-3 employecolor " style="font-size: 32px ; font-family: Arial, Helvetica, sans-serif;">
+        Edit Holiday</h1>
+    <div class="container">
+        <form (submit)="onData()" class="formborderbox round round-3 p-2 mt-3" #holidayForm="ngForm">
+
+
+            <div class="col mb-8" id="div">
+                <div class="row">
+                    <div class="col-md-6 mb-8">
+                        <!-- Date Input -->
+                        <label for="holidayDate" class="form-label">Date<span style="color:red">*</span></label>
+                        <input type="date" class="form-control input" id="holidayDate"
+                            placeholder="Enter your holidayDate" [(ngModel)]="holiday.holidayDate" name="holidayDate"
+                            required >
+                        <div style="margin: 10px;"
+                            *ngIf="holidayForm.controls['holidayDate'].errors?.['required'] && (holidayForm.controls['holidayDate'].dirty || holidayForm.controls['holidayDate'].touched)"
+                            class="text-danger">
+                            Date is required.
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 mb-8">
+                        <!-- Day Input -->
+                        <label for="holidayDay" class="form-label">Day<span style="color:red">*</span></label>
+                        <input type="text" class="form-control input" id="holidayDay"
+                            placeholder="Enter your holidayDay" [(ngModel)]="holiday.holidayDay" name="holidayDay"
+                            required>
+                        <div *ngIf="holidayForm.controls['holidayDay'].errors?.['required'] && (holidayForm.controls['holidayDay'].dirty || holidayForm.controls['holidayDay'].touched)"
+                            class="text-danger">
+                            HolidayDay is required.
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="row">
+                    <div class="col-md-6 mb-8">
+                        <!-- Holiday Name Input -->
+                        <label for="holidayName" class="form-label">Holiday Name<span style="color:red">*</span></label>
+                        <input type="text" class="form-control input" id="holidayName"
+                            placeholder="Enter your Holiday name" [(ngModel)]="holiday.holidayName" name="holidayName"
+                            required>
+                        <div *ngIf="holidayForm.controls['holidayName'].errors?.['required'] && (holidayForm.controls['holidayName'].dirty || holidayForm.controls['holidayName'].touched)"
+                            class="text-danger">
+                            HolidayName is required.
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 mb-8">
+                        <!-- Description Input -->
+                        <label for="description" class="form-label">Description<span style=color:red>*</span></label>
+                        <input type="text" class="form-control input" id="description"
+                            placeholder="Enter your Description" [(ngModel)]="holiday.description" name="description"
+                            required>
+                        <div *ngIf="holidayForm.controls['description'].errors?.['required'] && (holidayForm.controls['description'].dirty || holidayForm.controls['description'].touched)"
+                            class="text-danger">
+                            Description is required.
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6 mb-8">
+                        <label for="location" class="form-label">Location<span style=color:red>*</span></label>
+                        <input type="text" class="form-control input" id="location" placeholder="Enter holiday location"
+                            [(ngModel)]="holiday.location" name="location" required>
+                        <div *ngIf="holidayForm.controls['location'].errors?.['required'] && (holidayForm.controls['location'].dirty || holidayForm.controls['location'].touched)"
+                            class="text-danger">
+                            Location is required.
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-2 mb-5">
+                    <button type="submit" class="btn btnbg" [disabled]="holidayForm.invalid" >Submit</button>
+                </div>
+
+            </div>
+        </form>
+    </div>
+
+</div>

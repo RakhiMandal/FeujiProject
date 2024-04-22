@@ -1,0 +1,190 @@
+/* Style for the container */
+.container-fluid {
+  padding: 20px;
+  
+  margin-bottom: 50px;
+}
+
+/* Style for the heading */
+.holidaycalendor {
+  font-size: 24px;
+  font-weight: bold;
+  position: relative;
+  top: 10px;
+}
+
+/* Style for the table */
+.tablebox {
+  width: 95%;
+  margin: 0 auto;
+  border-collapse: collapse;
+  border: 1px solid #ccc;
+  position: relative;
+  bottom: 30px;
+  /* border-radius: 2px; */
+}
+
+/* Style for table rows */
+.rows {
+  border-bottom: 1px solid #ddd;
+}
+
+/* Style for table headers */
+.head th {
+  font-weight: bold;
+  text-align: center;
+  border: none;
+}
+
+/* Style for table data */
+.text1 {
+  text-align: center;
+  padding: 8px;
+}
+/* 
+Style for buttons
+.btn {
+  align-items: center;
+  padding: 8px 12px;
+
+} */
+
+.button-cell {
+  display: flex; 
+  justify-content: center; 
+  padding: 0; 
+}
+
+.btn {
+  cursor: pointer; 
+  
+}
+
+
+.head{
+ background-color: rgb(229, 233, 234);
+}
+
+.rows{
+  border-radius: 5px;
+  height: 45px;
+
+  padding: 200px;
+  width: 850px;
+
+
+}
+
+
+.holidaycalendor{
+
+  color: black;
+
+}
+.text{
+  font-size: smaller;
+ 
+
+  font-family:Arial, Helvetica, sans-serif ;
+
+  color: black;
+}
+.text1{
+ text-align: center;
+ margin-left: 80px;
+}
+ .btn{
+  border-radius: 50%;
+
+  height: 35px;
+  margin-bottom: 10px;
+  color:rgb(9, 9, 9);
+
+ }
+ .add {
+  margin-left: 720px;
+
+ background-color:rgb(164, 164, 236);
+
+
+
+ }
+ .icon{
+    margin-left: 70px;
+ }
+ button {
+  padding: 5px 10px;
+  /* background-color: #007bff; */
+  background-color: rgb(164, 164, 236);
+  color:black;
+  width: 50px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+/* Style for the container div */
+div {
+  margin-bottom: 10px; /* Add some space between the two divs */
+  position: relative;
+ bottom: 10px;
+}
+
+/* Style for the label */
+label {
+  font-weight: bold;
+ 
+}
+
+/* Style for the select element */
+select {
+  width: 10%; /* Make the select element fill its container */
+  padding: 5px; /* Add some padding for better appearance */
+  font-size: 16px; /* Adjust font size */
+  border: 1px solid #ccc; /* Add a border */
+  border-radius: 7px; /* Add border radius for rounded corners */
+  box-sizing: border-box; /* Ensure the padding and border are included in the width */
+  position: relative;
+  left: 10px; 
+}
+
+/* Style for the option elements */
+option {
+  font-size: 16px; /* Adjust font size */
+  display: flex;
+  justify-content: center;
+  
+}
+
+
+a {
+  display: inline-block;
+  width: 50px; /* Circle diameter */
+  height: 50px;
+  background-color: rgb(164, 164, 236); /* Green background */
+  color: black; 
+  text-align: center;
+  text-decoration: none;
+  border-radius: 50%;
+  position: relative;
+  left: 90%;
+  bottom: 40px;
+  display: inline-flex; /* Use flex to center the icon */
+  justify-content: center;
+  align-items: center;
+
+}
+
+a:hover {
+  background-color: rgb(164, 164, 236); /* Darker green on hover */
+}
+
+a i.fa-solid {
+  margin-right: 5px; /* Spacing between icon and text, if you add text */
+  display: flex;
+  justify-content: center;
+}

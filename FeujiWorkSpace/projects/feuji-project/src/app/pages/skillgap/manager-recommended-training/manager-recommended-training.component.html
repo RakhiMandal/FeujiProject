@@ -1,0 +1,77 @@
+<div class="container">
+  <div class="xlsxdownload" *ngIf="updatedEmployees.length>0">
+    <button (click)="downloadExcel()" type="button"> <img src="../../../../assets/img/xlsx.png" alt=""
+        matTooltip="download xlsx"></button>
+  </div>
+  <mat-accordion>
+    <mat-expansion-panel class="subCategory" *ngFor="let item of accordionData"
+      (opened)="onSelectSkillCategory(item.referenceDetailValue)">
+      <mat-expansion-panel-header >
+        <mat-panel-title  class="panelTitle">
+          {{item.referenceDetailValue}}
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+
+      <mat-panel-description>
+        <div *ngIf="accordionSubData">
+          <mat-accordion>
+          <mat-expansion-panel class="skillName" *ngFor="let subItem of accordionSubData"
+            (opened)="onSelectTechCat(subItem.referenceDetailId)" [style.width.rem]="64">
+            <mat-expansion-panel-header>
+              <div >
+                <mat-panel-title class="panelTitle">
+                  {{ subItem.referenceDetailValue }}
+                  <span
+                    *ngIf="selectedSubItem && selectedSubItem.referenceDetailId === subItem.referenceDetailId && accordionSubData.length > 0">-{{
+                    size }}</span>
+                </mat-panel-title>
+              </div>
+            </mat-expansion-panel-header>
+            <mat-panel-description>
+
+              <mat-table id="tabledata" [dataSource]="updatedEmployees">
+                <!-- Employee Name Column -->
+                <ng-container matColumnDef="employeeName">
+                  <mat-header-cell *matHeaderCellDef> Employee Name </mat-header-cell>
+                  <mat-cell *matCellDef="let employee"> {{employee.employeeName}} </mat-cell>
+                </ng-container>
+                <ng-container matColumnDef="designation">
+                  <mat-header-cell *matHeaderCellDef> Designation </mat-header-cell>
+                  <mat-cell *matCellDef="let employee"> {{employee.designition}} </mat-cell>
+                </ng-container>
+                <ng-container matColumnDef="email">
+                  <mat-header-cell *matHeaderCellDef> Email </mat-header-cell>
+                  <mat-cell id="emailtag" *matCellDef="let employee"> {{employee.email}} </mat-cell>
+                </ng-container>
+                <ng-container matColumnDef="skillName">
+                  <mat-header-cell *matHeaderCellDef> Skill Name </mat-header-cell>
+                  <mat-cell *matCellDef="let employee"> {{employee.skillName}} </mat-cell>
+                </ng-container>
+                <ng-container matColumnDef="actualCompetency">
+                  <mat-header-cell *matHeaderCellDef> Actual Competency </mat-header-cell>
+                  <mat-cell *matCellDef="let employee"> {{employee.actualCompetency}} </mat-cell>
+                </ng-container>
+                <ng-container matColumnDef="expectedCompetency">
+                  <mat-header-cell *matHeaderCellDef> Expected Competency </mat-header-cell>
+                  <mat-cell *matCellDef="let employee"> {{employee.expectedCompetency}} </mat-cell>
+                </ng-container>
+
+                <ng-container matColumnDef="result">
+                  <mat-header-cell *matHeaderCellDef> Result </mat-header-cell>
+                  <mat-cell *matCellDef="let employee">
+                    <img id="skillimg" [src]="generateResult2(employee.expectedCompetency, employee.actualCompetency)"
+                      alt="Result" />
+                  </mat-cell>
+                </ng-container>
+                <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+                <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+              </mat-table>
+            </mat-panel-description>
+          </mat-expansion-panel>
+        </mat-accordion>
+        </div>
+      </mat-panel-description>
+
+    </mat-expansion-panel>
+  </mat-accordion>
+</div>

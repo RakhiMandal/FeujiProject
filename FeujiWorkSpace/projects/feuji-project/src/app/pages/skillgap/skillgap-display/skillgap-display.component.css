@@ -1,0 +1,125 @@
+.selectbtns {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.selectbtns select {
+  height: 40px;
+  width: 200px;
+  box-sizing: border-box;
+  padding: 7px;
+  border-radius: 5px;
+  appearance: none;
+}
+
+.selected-border {
+  border: 1px solid blue;
+}
+
+.display {
+  margin-top: 3%;
+}
+.table td {
+  white-space: nowrap;
+  overflow: visible;
+  text-overflow: ellipsis;
+}
+
+input {
+  overflow: visible;
+}
+
+.table thead th {
+  background-color: #f0f0f0;
+  border: none;
+  padding: 8px;
+ 
+}
+.table thead th:nth-child(even) {
+  background-color: #e0e0e0;
+}
+
+.table thead th:nth-child(odd) {
+  background-color: #d0d0d0;
+}
+.th1{
+  background-color: white;
+  font-size: 15px;
+  font-weight: normal;
+}
+
+.table thead th:hover {
+  background-color: #ccc;
+
+}
+img{
+  height: 20px; 
+}
+
+#headerDetails{
+  background-color: white;
+}
+#headerDetails > tr>th{
+  background-color: white;
+}
+td{
+  font-size: 12px;
+}
+.th-container {
+  display: flex;
+  justify-content: space-between;
+}
+.selectTag{
+  width: 5rem;
+  height: 2rem;
+}
+.pagenationBtns{
+  display: flex;
+  justify-content: end;
+  align-items: center;
+}
+.noOfPages{
+  margin-right: 1%;
+}
+.prevNext{
+  height: 2rem;
+  border-radius: 5px;
+}
+.itemsdiv{
+  margin-right:1%;
+}
+.container{
+  margin-top: 4%; 
+}
+select option{
+  font-size: 12px;
+}
+#searchbtn{
+  width: 8%;
+   height: 5%;
+   color: black; 
+   font-size: medium ; 
+   background-color: rgb(164, 164, 236);
+    border-color: rgb(164, 164, 236)
+}
+table thead{
+  position: sticky; 
+   top: 7rem;
+}
+#text{
+  width: 8rem;
+}
+.skillNamesdisplay{
+  transform:rotate(180deg); 
+  padding: 0px 4px;
+  writing-mode: vertical-lr;
+   width: 5px; 
+   vertical-align:text-bottom;
+}
+#displaytype{
+  text-align: center;
+}
+img{
+  height:20px;
+}

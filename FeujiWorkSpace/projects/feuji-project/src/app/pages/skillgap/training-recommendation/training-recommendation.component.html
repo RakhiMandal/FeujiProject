@@ -1,0 +1,78 @@
+<mat-card>
+  <mat-card-content>
+    <mat-tab-group>
+      <mat-tab>
+        <ng-template mat-tab-label>
+          <span style="color: black;">Training Recommendations(High SkillGap)</span>
+        </ng-template>
+        <div id="section2">
+          <div class="message" *ngIf="skillGapMessage==2">
+            <p  class="toptext"> No High Gap in skills.</p>
+             <p>You have demonstrated proficiency in all high-priority skills. Keep up the excellent work!</p>
+            </div>
+          <div id="recommend-training" *ngFor="let skill of highGapSkills">
+            <div class="container">
+              <div id="firstDiv">
+                <div class="circle">
+                  <img src="../../../../assets/img/lessSkill.png" id="image">
+                </div>
+                <div class="eachSkill">
+                  <p class="skillname">{{skill.skillName}}</p>
+                </div>
+              </div>       
+              <div class="secondDiv">
+                <div class="list">                
+                  <div >
+                    <p ><b>Current:</b>{{skill.acReferenceDetailsValues}}</p>
+                  </div>
+                  <div >
+                    <p ><b>Recommend:</b>{{skill.exReferenceDetailsValues}}</p>
+                  </div>
+                  <div >
+                    <p ><b>Description:</b>{{skill.description}}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </mat-tab>
+      <mat-tab>
+        <ng-template mat-tab-label>
+          <span>Training Recommendations(Moderate SkillGap)</span>
+        </ng-template>
+        <div id="section2">
+          <div class="message" *ngIf="skillGapMessage==1">
+            <p  class="toptext"> No Modetare Gap in skills.</p>
+             <p>You have demonstrated proficiency in all moderate-skills. Keep up the good work!</p>
+            </div>
+          <div id="recommend-training" *ngFor="let skill of moderateGapSkills">
+            <div class="container">
+              <div id="firstDiv">
+                <div class="circle">
+                  <img src="../../../../assets/img/lowgap.png" id="image">
+                </div>
+                <div class="eachSkill">
+                  <p class="skillname">{{skill.skillName}}</p>
+                </div>
+              </div>       
+              <div class="secondDiv">
+                <div class="list">                
+                  <div >
+                    <p class="description"><b>Current:</b>{{skill.acReferenceDetailsValues}}</p>
+                  </div>
+                  <div >
+                    <p class="description"><b>Recommend:</b>{{skill.exReferenceDetailsValues}}</p>
+                  </div>
+                  <div >
+                    <p class="description"><b>Description:</b>{{skill.description}}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </mat-tab>
+    </mat-tab-group>
+  </mat-card-content>
+</mat-card>

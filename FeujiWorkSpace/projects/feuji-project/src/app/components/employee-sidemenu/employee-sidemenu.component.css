@@ -1,0 +1,28 @@
+.bg-dark{
+    height: 600px;
+    width: 190px;
+  }
+  .nav-pills li a span
+  {
+  color:   rgb(243,117,46);
+  font-size:15px;
+  }
+  .nav-pills li a span:hover
+  {
+    color: rgb(243,117,46);
+    font-size:19px;
+  }
+  
+  .submenu {
+    display: none;
+  }
+  
+  .submenu.show {
+    display: block;
+  }
+  
+  .plus-sign {
+    float: right;
+    margin-right: 12px;
+  }
+  

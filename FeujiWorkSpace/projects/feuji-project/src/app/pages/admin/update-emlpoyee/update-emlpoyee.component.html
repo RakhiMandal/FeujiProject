@@ -1,0 +1,121 @@
+<div class="accountheader"><h1>   </h1></div>
+<div class="card">
+
+    <h1 class="mb-3 employecolor" style="font-size: 1.5empx; font-family: Arial, Helvetica, sans-serif;">
+      Employee Details</h1>
+    <form class="formborderbox round round-3 p-4 mt-3"  (submit)="updateEmployee(empForm.value,emp.uuid,emp.employeeId,emp.isDeleted)" #empForm="ngForm">
+
+        <div class="row">
+             <div class="col-md-4 mb-3">
+        <label for="firstName" class="form-label">First Name<span style=color:red>*</span></label>
+        <input type="text" class="form-control" id="firstName" placeholder="Enter your first name"
+          [(ngModel)]="emp.firstName" name="firstName">
+
+      </div>
+      <div class="col-md-4 mb-3">
+        <label for="middleName" class="form-label">Middle Name</label>
+        <input type="text" class="form-control" id="middleName" placeholder="Enter your Middle name"
+        [(ngModel)]="emp.middleName" name="middleName">
+
+      </div>
+      <div class="col-md-4 mb-3">
+        <label for="lastName" class="form-label">Last Name<span style=color:red>*</span></label>
+        <input type="text" class="form-control" id="lasteName" placeholder="Enter your Last name" [(ngModel)]="emp.lastName"
+          name="lastName">
+      </div>
+	  <div class="col-md-4 mb-3">
+        <label for="employeeCode" class="form-label">Employee Code<span style=color:red>*</span></label>
+        <input type="text" class="form-control" id="employeeCode" placeholder="Enter employee code"
+        [(ngModel)]="emp.employeeCode" name="employeeCode" #employeeCodeControl="ngModel" required />
+        <div *ngIf="employeeCodeControl.invalid && (employeeCodeControl.dirty || employeeCodeControl.touched)"
+          class="text-danger">
+          <div *ngIf="employeeCodeControl.errors">Employee Code is required.</div>
+        </div>
+      </div>
+      <!-- UNIQUE EMPLOYEE EMAIL -->
+      <div class="col-md-4 mb-3">
+        <label for="email" class="form-label">Employee Email<span style=color:red>*</span></label>
+        <input type="text" class="form-control" id="email" placeholder="Enter employee Email" [(ngModel)]="emp.email"
+          name="email" >
+      </div>
+      <!-- GENDER -->
+      <div class="col-md-4 mb-3">
+        <label for="gender" class="form-label">Gender<span style=color:red>*</span></label>
+        <select class="form-select" id="gender" [(ngModel)]="emp.genderId" name="gender">
+          <option >Choose</option>
+          <option [ngValue]="emp.genderId">{{ emp.gender}}</option>
+          <option *ngFor="let empGender of gender" [ngValue]="empGender.referenceDetailId">{{ empGender.referenceDetailValue }}</option>
+        </select>
+      </div>
+	   <div class="col-md-4 mb-3">
+        <label for="dataOfJoining" class="form-label">Date Of Joining<span style=color:red>*</span></label>
+        <input type="date" class="form-control" id="dataOfJoining" [(ngModel)]="emp.dateOfJoining" name="dateOfJoining">
+      </div>
+
+      <!-- EMPLOYEEMENT TYPE -->
+      <div class="col-md-4 mb-3">
+        <label for="employmentType" class="form-label">Employment Type<span style=color:red>*</span></label>
+        <select class="form-select" id="employmentType" [(ngModel)]="emp.empTypeId" name="employmentType">
+          <option hidden>Choose</option>
+          <option [ngValue]="emp.empTypeId">{{ emp.empType }}</option>
+          <option *ngFor="let empType of employmentTypes" [ngValue]="empType.referenceDetailId">{{ empType.referenceDetailValue }}</option>
+        </select>
+      </div>
+      <!-- DESIGNATION -->
+      <div class="col-md-4 mb-3">
+        <label for="designation" class="form-label">Designation<span style=color:red>*</span></label>
+        <input type="text" class="form-control" id="designation" placeholder="Enter designation"
+               [(ngModel)]="emp.designation" name="designation" required>
+      </div>
+	  <!-- REPORTING MANAGER -->
+      <div class="col-md-4 mb-3">
+        <label for="reportingManagerId" class="form-label">Reporting Manager<span style="color:red">*</span></label>
+        <select class="form-select" id="reportingManagerId" [(ngModel)]="emp.managerId" name="reportingManagerId">
+            <option hidden>Select reporting manager</option>
+        <option  [ngValue]="emp.managerId">{{emp.managerFirstName}} {{emp.managerMiddleName}}{{emp.managerLastNamee}}</option>
+
+            <option *ngFor="let empReportingManager of reportingManager" [ngValue]="empReportingManager.employeeId">{{empReportingManager.firstName}}</option>
+
+        </select>
+      </div>
+
+
+      <!-- BUSINESS UNIT -->
+      <div class="col-md-4 mb-3">businessUnitId
+        <label for="businessUnitId" class="form-label">Business Unit<span style=color:red>*</span></label>
+        <select class="form-select" id="businessUnitId" [(ngModel)]="emp.businessUnitId" name="businessUnitId">
+          <option hidden>Choose</option>
+          <option [ngValue]="emp.businessUnitId">{{ emp.businessUnit}}</option>
+          <option *ngFor="let empDeliveryUnit of businessUnit" [ngValue]="empDeliveryUnit.referenceDetailId">{{ empDeliveryUnit.referenceDetailValue }}</option>
+        </select>
+      </div>
+      <!-- DELIVERY UNIT -->
+      <div class="col-md-4 mb-3">
+        <label for="deliveryUnitId" class="form-label">Delivery Unit<span style=color:red>*</span></label>
+        <select class="form-select" id="deliveryUnitId" [(ngModel)]="emp.deliveryUnitId" name="deliveryUnitId">
+          <option hidden>Choose</option>
+          <option  [ngValue]="emp.deliveryUnitId">{{ emp.deliveryUnit}}</option>
+          <option *ngFor="let empDeliveryUnit of deliveryUnit" [ngValue]="empDeliveryUnit.referenceDetailId">{{ empDeliveryUnit.referenceDetailValue }}</option>
+        </select>
+      </div>
+	  <div class="col-md-4 mb-3">
+        <label for="status" class="form-label">Status<span style=color:red>*</span></label>
+        <select class="form-select" id="status" placeholder="Enter status" [(ngModel)]="emp.statusId" name="status" required>
+          <option value="" disabled selected>Select status</option>
+          <option  [ngValue]="emp.statusId">{{ emp.status}}</option>
+          <option *ngFor="let empDeliveryUnit of status" [ngValue]="empDeliveryUnit.referenceDetailId">{{ empDeliveryUnit.referenceDetailValue }}</option>
+        </select>
+      </div>
+
+
+
+        </div>
+
+        <div class=" row button">
+          <button type="submit" class="btn btnbg">Submit</button>
+          <button type="submit" class="btn btnbg back" routerLink="/admin/display-employee">Back</button>
+        </div>
+
+    </form>
+
+</div>

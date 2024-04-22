@@ -1,0 +1,47 @@
+<div class="container-fluid">
+<div>
+    <label for="holidayYear">Select year</label>
+    <select id="holidayYear" [(ngModel)]="selectedYear" (change)="HolidaysByYear()">
+      <option *ngFor="let year of holidayYears" [value]="year" [selected]="year === defaultYear">{{ year }}</option>
+    </select>
+  </div>
+
+    <div class="addbutton">
+      <div >
+              <a  routerLink="/admin/add-holiday">
+                <i class="fa-solid fa-plus"></i>
+              </a>
+    </div>
+    </div>
+
+
+
+    <table class="tablebox">
+
+      <tr class="rows   head">
+        <th class="  text-center  ">Date</th>
+        <th class=" text-center ">Holiday Name</th>
+        <th class="  text-center">Week Of The Day</th>
+        <th col>Actions</th>
+      </tr>
+      <tr *ngFor="let holiday of holidayDetails " class="rows">
+
+        <td class="text1">{{holiday.holidayDate|date:'dd-MMM-yyyy'}}</td>
+        <td class="text1">{{holiday.holidayName}}</td>
+        <td class="text1">{{holiday.holidayDay}}</td>
+        <td  class="button-cell"><button type="button" class="btn btn-warning ml-2  bg bg-light" (click)="navigateeditholiday(holiday)">
+          <i class="fas fa-edit" ></i>
+        </button>
+
+          <button type="button" class="btn btn-warning ml-2  bg bg-light" (click)="removeTask(holiday.holidayId)">
+          <i
+            class="fa-solid fa-trash-can fa-fw"
+            style="color: red"
+
+          ></i>
+        </button>
+        </td>
+
+      </tr>
+    </table>
+  </div>

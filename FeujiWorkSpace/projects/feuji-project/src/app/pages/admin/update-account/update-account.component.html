@@ -1,0 +1,129 @@
+<div class="container-fluid mt-4">
+    <h1 class="text-center mb-3 employecolor " style="font-size: 32px ; font-family: Arial, Helvetica, sans-serif;">Update Account</h1>
+    <form class="formborderbox round round-3 p-4 mt-3" (submit)="updateAccount(acc.uuId,acc.isDeleted)" #accountForm="ngForm" >
+  
+  
+        <div class="row mb-3">
+           <div class="col-md-4 mb-3">
+                <label for="accountId" class="form-label"> ID:</label>
+                <input type="number" class="form-control" id="accountId" [(ngModel)]="acc.accountId" readonly="readonly"   name="accountId">
+                
+               
+            </div>
+			<div class="col-md-4 mb-3">
+                <label for="accountName" class="form-label"> Name:</label>
+                <input type="text" class="form-control" id="accountName" placeholder="Enter your accountName" [(ngModel)]="acc.accountName" name="accountName">
+  
+            </div>
+        
+            <div class="col-md-4 mb-3">
+                <label for="ownerId" class="form-label">Owner Name:</label>
+                <select class="form-select" id="ownerId" [(ngModel)]="acc.ownerId" name="ownerId">
+				<option [ngValue]="acc.ownerId">{{acc.ownerName}}</option>
+                <option *ngFor="let employee of emplyoee" [ngValue]="employee.employeeId">{{employee.firstName}}
+                    {{employee.lastname}}</option>
+                </select>
+            </div>
+
+
+            <div class="col-md-4 mb-3">
+                <label for="relationshipManagerId" class="form-label">Relationship Manager Name:</label>
+                <select class="form-select" id="relationshipManagerId" [(ngModel)]="acc.relationshipManagerId" name="relationshipManagerId">
+                    <option [ngValue]="acc.relationshipManagerId">{{acc.relationshipManageName}}</option>
+                    <option *ngFor="let employee of emplyoee" [ngValue]="employee.employeeId">{{employee.firstName}}
+                        {{employee.lastname}}</option>
+                </select>
+            </div>
+			<div class="col-md-4 mb-3">
+                <label for="businessDevelopmentManagerId" class="form-label">Business Development Manager Name:</label>
+                <select class="form-select" id="businessDevelopmentManagerId" [(ngModel)]="acc.businessDevelopmentManagerId" name="businessDevelopmentManagerId">
+                    <option [ngValue]="acc.businessDevelopmentManagerId">{{acc.businessDevelopmentManagerName}}
+                        </option>
+                        <option *ngFor="let employee of emplyoee" [ngValue]="employee.employeeId">{{employee.firstName}}
+                            {{employee.lastname}}</option>
+                </select>
+            </div>
+
+            <div class="col-md-4 mb-3">
+                <label for="parentAccountId" class="form-label"> Parent Account Name:</label> 
+                <select class="form-select" id="parentAccountId" placeholder="Enter Parent Account Id" [(ngModel)]="acc.parentAccountId" name="parentAccountId">            
+                    <option [ngValue]="acc.parentAccountId">{{acc.parentAccountName}}
+                </option>
+                 <option *ngFor="let account1 of account1" [ngValue]="account1.accountId">{{account1.accountName}}</option>
+                </select>
+            </div>
+           
+            
+
+            <div class="col-md-4 mb-3">
+                <label for="accountBuId" class="form-label">Business Unit Name</label> 
+                <select class="form-select"  id="accountBuId" placeholder="Enter Account BuId" [(ngModel)]="acc.accountBuId" name="accountBuId">            
+                    <option [ngValue]="acc.accountBuId">{{ acc.accountBuName}}</option>
+                    <option *ngFor="let BU of businessUnitType" [ngValue]="BU.referenceDetailId">{{ BU.referenceDetailValue}}
+                    </option>
+                </select>
+            </div>
+            
+        
+			  <div class="col-md-4 mb-3">
+                <label for="plannedStartDate" class="form-label">Planned Start Date:</label>
+                <input type="date" class="form-control" id="plannedStartDate" [(ngModel)]="acc.plannedStartDate" name="plannedStartDate">
+            </div>
+  
+  
+            <div class="col-md-4 mb-3">
+                <label for="plannedEndDate" class="form-label">Planned Start Date:</label>
+                <input type="date" class="form-control" id="plannedEndDate" [(ngModel)]="acc.plannedEndDate" name="plannedEndDate">
+            </div>
+  
+  
+            <div class="col-md-4 mb-3">
+                <label for="actualStartDate" class="form-label">actual Start Date:</label>
+                <input type="date" class="form-control" [(ngModel)]="acc.actualStartDate" id="actualStartDate" name="actualStartDate">
+            </div>
+			<div class="col-md-4 mb-3">
+                <label for="actualEndDate" class="form-label">actual End Date::</label>
+                <input type="date" class="form-control" id="actualEndDate" [(ngModel)]="acc.actualEndDate" name="actualEndDate">
+            </div>
+            <div class="col-md-4 mb-3">
+                <label for="address" class="form-label">Address:</label>
+                <input type="text" class="form-control" id="address" [(ngModel)]="acc.address" name="address">
+            </div>
+            <div class="col-md-4 mb-3">
+                <label for="city" class="form-label"> City:</label>
+                <input type="text" class="form-control" id="city" [(ngModel)]="acc.city" name="city">
+            </div>
+        
+          <div class="col-md-4 mb-3">
+                <label for="state" class="form-label">State:</label>
+                <input type="text" class="form-control" id="state" [(ngModel)]="acc.state" name="state">
+            </div>
+            <div class="col-md-4 mb-3">
+                <label for="zipcode" class="form-label"> Zipcode:</label>
+                <input type="text" class="form-control" id="zipcode" [(ngModel)]="acc.zipcode" name="zipcode">
+            </div>
+            <div class="col-md-4 mb-3">
+                <label for="country" class="form-label">Country:</label>
+                <input type="text" class="form-control" id="country" [(ngModel)]="acc.country" name="country">
+            </div>
+
+        <div class="col-md-4 mb-3">
+            <label for="accountStatus" class="form-label">Status:</label> 
+            <select class="form-select" id="accountStatus" placeholder="Enter Status" [(ngModel)]="acc.accountStatus" name="accountStatus">
+                <option [ngValue]="acc.accountStatus">{{ acc.statusValue }}</option>
+                <option *ngFor="let status1 of statusTypes" [ngValue]="status1.referenceDetailId">{{ status1.referenceDetailValue }}</option>
+              </select>
+        </div>
+        
+       
+        
+    </div>
+      
+        <div class="rowbutton">
+            <button type="submit" class="btn btnbg"  >Submit</button>
+            <button type="submit" class="btn btnbg back" routerLink="/admin/account-display" >Back</button>
+        </div>
+        
+    </form>
+     
+  </div>
